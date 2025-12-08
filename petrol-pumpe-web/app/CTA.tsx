@@ -1,16 +1,42 @@
-export default function CTA() {
+import { Smartphone } from "lucide-react";
+import { JSX } from "react";
+export default function CTASection(): JSX.Element {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-r from-blue-600 to-purple-600">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-white mb-6">
-          Ready to Transform Your Tailoring Business?
+    <section className="bg-[#143f73] py-20">
+      <div className="mx-auto max-w-5xl px-6 text-center text-white">
+
+        {/* Icon */}
+        <div className="mb-4 flex justify-center">
+          <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-orange-400 text-orange-400">
+            <Smartphone size={24} />
+          </div>
+        </div>
+
+        {/* Heading */}
+        <h2 className="text-2xl md:text-3xl font-bold">
+          Ready to Transform Your Fuel Business?
         </h2>
-        <p className="text-xl text-blue-100 mb-8">
-          Join thousands of tailors who trust TailorMate for their business management
+
+        {/* Sub text */}
+        <p className="mt-3 text-sm text-white/80 max-w-xl mx-auto">
+          Join thousands of petrol pump owners who trust FuelTrack for their
+          daily operations.
         </p>
-        <button className="px-10 py-4 bg-white text-blue-600 rounded-full text-lg font-semibold hover:bg-gray-100 transition shadow-lg">
-          Get Started Today
-        </button>
+
+        {/* CTA Button */}
+        <div className="mt-8 flex justify-center">
+          <button className="flex items-center gap-2 rounded-md bg-orange-500 px-6 py-3 text-sm font-semibold text-white hover:bg-orange-600 transition">
+            <span className="inline-flex items-center justify-center rounded-full bg-white/20 p-1">
+              <Smartphone size={18} />
+            </span>
+            Contact Us
+          </button>
+        </div>
+
+        {/* Footer text */}
+        <p className="mt-6 text-xs text-white/70">
+          Available on Google Play Store • Free to Download
+        </p>
       </div>
     </section>
   );
