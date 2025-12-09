@@ -37,16 +37,16 @@ export default function DownloadApp(): JSX.Element {
 
             {/* Store buttons */}
             <div className="mt-8 flex gap-4">
-              <img
-                src="/app-store.png"
-                alt="App Store"
-                className="h-12 cursor-pointer"
-              />
-              <img
-                src="/play-store.png"
-                alt="Google Play"
-                className="h-12 cursor-pointer"
-              />
+               <a href="https://play.google.com/store/apps/developer?id=Inext+Software+Solutions&hl=en_IN" target="newtab" className="mt-8 flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start">
+                              <Image
+                                src="/appstore.png"
+                                alt="Download on the App Store"
+                                width={160}
+                                height={48}
+                                className="cursor-pointer"
+                              />
+                            </a>
+           
             </div>
           </div>
 

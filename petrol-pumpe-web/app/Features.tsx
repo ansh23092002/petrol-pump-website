@@ -1,4 +1,6 @@
-import { JSX } from "react";
+'use client';
+import { JSX, useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
 import {
   ClipboardList,
   Users,
@@ -71,56 +73,75 @@ const FEATURES: Feature[] = [
   },
 ];
 
-export default function FeaturesPage(): JSX.Element {
-  return (
-    <main className="bg-[#fff8ef] py-20">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 text-center">
+export default function Footer(): JSX.Element {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
 
+  useEffect(() => {
+    const observer = new window.IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (visible && sectionRef.current) {
+      gsap.fromTo(
+        sectionRef.current.querySelectorAll('.features-animate'),
+        { y: 40, opacity: 0 },
+        { y: 0, opacity: 1, stagger: 0.15, duration: 0.7, ease: 'power3.out' }
+      );
+    }
+  }, [visible]);
+
+  return (
+    <main className="bg-[#fff8ef] py-20" ref={sectionRef}>
+      <div className="mx-auto max-w-7xl px-6 lg:px-10 text-center">
         {/* Section label */}
-        <p className="text-sm font-semibold text-orange-500 mb-4">
+        <p className="features-animate text-sm font-semibold text-orange-500 mb-4">
           App Features
         </p>
-
         {/* Heading */}
-        <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-14">
+        <h1 className="features-animate text-3xl md:text-4xl font-bold text-slate-900 mb-14">
           Powerful Features to Run Your <br className="hidden md:block" />
           Fuel Station Efficiently
         </h1>
-
         {/* Feature cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
           {FEATURES.map((item) => (
             <div
               key={item.id}
-              className={`relative overflow-hidden rounded-xl p-6 shadow-sm ${item.bg}`}
+              className={`features-animate relative overflow-hidden rounded-xl p-6 shadow-sm ${item.bg}`}
             >
               {/* Soft curved background */}
               <div
-                className={`absolute inset-0 bg-gradient-to-br ${item.accent} to-transparent pointer-events-none`}
+                className={`absolute inset-0 bg-linear-to-br ${item.accent} to-transparent pointer-events-none`}
               />
-
               {/* Number badge */}
               <span className="absolute top-4 left-4 z-10 flex h-8 w-8 items-center justify-center rounded-full border bg-white text-sm font-semibold text-slate-700">
                 {item.id}
               </span>
-
               {/* Icon */}
               <div className="relative z-10 mt-10 mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-white shadow text-slate-900">
                 {item.icon}
               </div>
-
               {/* Content */}
               <h3 className="relative z-10 text-lg font-semibold text-slate-900 mb-2">
                 {item.title}
               </h3>
-
               <p className="relative z-10 text-sm text-slate-600 leading-relaxed">
                 {item.description}
               </p>
             </div>
           ))}
         </div>
-
       </div>
     </main>
   );
