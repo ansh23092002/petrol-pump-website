@@ -1,22 +1,35 @@
 'use client';
 import { Smartphone } from "lucide-react";
-import { JSX, useEffect, useRef } from "react";
+import { JSX, useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
-
 export default function CTA(): JSX.Element {
-  
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    if (sectionRef.current) {
+    const observer = new window.IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (visible && sectionRef.current) {
       gsap.fromTo(
         sectionRef.current.querySelectorAll('.cta-animate'),
         { y: 40, opacity: 0 },
         { y: 0, opacity: 1, stagger: 0.15, duration: 0.7, ease: 'power3.out' }
       );
     }
-  }, []);
+  }, [visible]);
 
   return (
     <section className="bg-[#143f73] py-20" ref={sectionRef}>

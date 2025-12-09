@@ -1,7 +1,7 @@
 'use client';
 import { JSX, useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-
+import Link from "next/link";
 
 export default function Footer(): JSX.Element {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -76,8 +76,12 @@ export default function Footer(): JSX.Element {
               </h4>
               <ul className="space-y-2 text-slate-600">
                 <li className="hover:text-slate-900 cursor-pointer">About Us</li>
-                <li className="hover:text-slate-900 cursor-pointer">Privacy Policy</li>
-                <li className="hover:text-slate-900 cursor-pointer">Terms of Service</li>
+                <li className="hover:text-slate-900 cursor-pointer transition">
+                  <Link href="/privacy">Privacy Policy</Link>
+                </li>
+                <li className="hover:text-slate-900 cursor-pointer transition">
+                  <Link href="/terms">Terms of Service</Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -92,18 +96,18 @@ export default function Footer(): JSX.Element {
               © {new Date().getFullYear()} FuelTrack App. All Rights Reserved.
             </p>
             <div className="flex gap-5">
-              <span className="hover:text-white cursor-pointer">
+              <Link href="/terms" className="hover:text-slate-900 cursor-pointer transition">
                 Terms of Agreement
-              </span>
-              <span className="hover:text-white cursor-pointer">
+              </Link>
+              <Link href="/privacy" className="hover:text-slate-900 cursor-pointer transition">
                 Privacy Policy
-              </span>
-              <span className="hover:text-white cursor-pointer">
+              </Link>
+              <Link href="/refund" className="hover:text-slate-900 cursor-pointer transition">
                 Refund Policy
-              </span>
-              <span className="hover:text-white cursor-pointer">
+              </Link>
+              <Link href="/faqs" className="hover:text-slate-900 cursor-pointer transition">
                 FAQs
-              </span>
+              </Link>
             </div>
           </div>
         </div>
