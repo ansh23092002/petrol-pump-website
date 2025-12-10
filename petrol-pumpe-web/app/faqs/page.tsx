@@ -1,5 +1,8 @@
 import { JSX } from "react";
 import type { Metadata } from "next";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Hero from "../Hero";
 
 export const metadata: Metadata = {
   title: "FAQs - FuelTrack",
@@ -8,7 +11,10 @@ export const metadata: Metadata = {
 
 export default function FAQs(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white py-20">
+    <>
+      <Navbar />
+      <Hero />
+      <main className="min-h-screen bg-white py-20">
       <div className="mx-auto max-w-4xl px-6 lg:px-10">
         <h1 className="text-4xl font-bold text-slate-900 mb-8">Frequently Asked Questions</h1>
         <p className="text-lg text-slate-600 mb-12">
@@ -194,5 +200,7 @@ export default function FAQs(): JSX.Element {
         </div>
       </div>
     </main>
+    <Footer />
+    </>
   );
 }

@@ -93,7 +93,7 @@ export default function Footer(): JSX.Element {
         <div className="mx-auto max-w-7xl px-6 lg:px-10 py-5">
           <div className="footer-animate flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
             <p>
-              © {new Date().getFullYear()} FuelTrack App. All Rights Reserved.
+              © {new Date().getFullYear()} Inext Software Solutions. All Rights Reserved.
             </p>
             <div className="flex gap-5">
               <Link href="/terms" className="hover:text-slate-900 cursor-pointer transition">

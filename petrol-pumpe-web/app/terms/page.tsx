@@ -1,5 +1,8 @@
 import { JSX } from "react";
 import type { Metadata } from "next";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Hero from "../Hero";
 
 export const metadata: Metadata = {
   title: "Terms of Agreement - FuelTrack",
@@ -8,7 +11,10 @@ export const metadata: Metadata = {
 
 export default function TermsOfAgreement(): JSX.Element {
   return (
-    <main className="min-h-screen bg-white py-20">
+    <>
+      <Navbar />
+      <Hero />
+      <main className="min-h-screen bg-white py-20">
       <div className="mx-auto max-w-4xl px-6 lg:px-10">
         <h1 className="text-4xl font-bold text-slate-900 mb-8">Terms of Agreement</h1>
         <p className="text-sm text-slate-600 mb-8">Last Updated: December 9, 2025</p>
@@ -109,5 +115,7 @@ export default function TermsOfAgreement(): JSX.Element {
         </div>
       </div>
     </main>
+    <Footer />
+    </>
   );
 }
