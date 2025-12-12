@@ -53,7 +53,7 @@ export default function DownloadApp(): JSX.Element {
           {/* Right Mobile Mockup */}
           <div className="flex justify-center lg:justify-end">
             <Image
-              src="/iMockup.svg"
+              src="/mockups/iMockup.svg"
               alt="Mobile App Mockup"
               width={300}
               height={600}

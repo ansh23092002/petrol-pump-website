@@ -28,7 +28,7 @@ export default function AboutPage(): JSX.Element {
         <div className="mt-16">
           <div className="relative mx-auto max-w-5xl rounded-3xl bg-white p-6 shadow-xl">
             <Image
-              src="/dashboard-preview.jpg"
+              src="/dashboard-preview.png"
               alt="Fuel Station Dashboard"
               width={1200}
               height={700}

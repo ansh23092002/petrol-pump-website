@@ -1,3 +1,4 @@
+'use client';
 import Navbar from "./components/Navbar";
 import Hero from "./Hero";
 import Features from "./Features";
@@ -8,6 +9,7 @@ import AboutPage from "./About";
 import WhyChooseUs from "./WhyChooseUs";
 import DownloadApp from "./components/DownloadApp";
 
+import LogoLoopDemo from "./components/logoloop";
 export default function Home() {
   return (
     <div className="min-h-screen ">
@@ -16,10 +18,11 @@ export default function Home() {
       <AboutPage />
       <Features />
       <WhyChooseUs />
+      <LogoLoopDemo />
       <DownloadApp /> 
       <Testimonials />
-
       <CTA />
+     
       <Footer />
     </div>
   );

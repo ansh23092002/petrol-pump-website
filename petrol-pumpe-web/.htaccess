@@ -1,0 +1,17 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+# ✅ Allow system files and folders
+RewriteRule ^_next/.*$ - [L]
+RewriteRule ^static/.*$ - [L]
+RewriteRule ^images/.*$ - [L]
+RewriteRule ^robots\.txt$ - [L]
+RewriteRule ^sitemap\.xml$ - [L]
+
+# ✅ Handle Next.js folder-based routing (/about → /about/index.html)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /$1/index.html [L]
+
+# ✅ Default file
+DirectoryIndex index.html
