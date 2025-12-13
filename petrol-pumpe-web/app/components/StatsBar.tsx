@@ -80,18 +80,18 @@ export default function StatsBar(): JSX.Element {
   }, [visible]);
 
   return (
-    <section className="py-10  " ref={ref}>
-      <div className="mx-auto px-6 lg:px-10">
+    <section className="  bg-white rounded-4xl max-w-[1200px] mx-auto px-6 lg:px-10" ref={ref}>
+      <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 rounded-xl p-6">
           {STATS.map((item, index) => {
             const { suffix } = parseValue(item.value);
             return (
               <div
                 key={index}
-                className="stat-card flex flex-col items-center text-center"
+                className="stat-card flex flex-col items-center text-center "
                 style={{ willChange: 'transform, opacity' }}
               >
-                <p className="text-2xl md:text-3xl font-bold text-emerald-600">
+                <p className="text-2xl md:text-3xl font-bold text-[#3755AE]">
                   {counts[index].toFixed(
                     item.value.includes(".") ? 1 : 0
                   )}

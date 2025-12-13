@@ -71,15 +71,18 @@ export default function Navbar(): JSX.Element {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <div className="flex h-16 md:h-20 items-center justify-between text-white">
           
-          {/* Logo */}
-          <Link href="/" className="navbar-logo">
+          {/* Logo with Text */}
+          <Link href="/" className="navbar-logo flex items-center gap-3 group">
             <Image 
               src="/logo.png" 
               alt="FuelTrack Logo" 
               width={48} 
               height={48} 
-              className="hover:scale-105 transition-transform duration-200"
+              className="group-hover:scale-105 transition-transform duration-200"
             />
+            <span className="text-2xl font-bold text-[#3755AE] tracking-tight">
+              FuelTrack
+            </span>
           </Link>
 
           {/* Desktop Menu */}
@@ -91,10 +94,10 @@ export default function Navbar(): JSX.Element {
               <li key={item.name}>
                 <button
                   onClick={() => scrollToSection(item.href)}
-                  className="px-4 py-2 rounded-lg hover:bg-white/10 hover:text-white transition-all duration-200 relative group"
+                  className="px-4 py-2 rounded-lg hover:bg-[#3755AE]/20 hover:text-[#3755AE] transition-all duration-200 relative group"
                 >
                   {item.name}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-400 group-hover:w-full transition-all duration-300"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#3755AE] group-hover:w-full transition-all duration-300"></span>
                 </button>
               </li>
             ))}
@@ -118,7 +121,7 @@ export default function Navbar(): JSX.Element {
                 <li key={item.name}>
                   <button
                     onClick={() => scrollToSection(item.href)}
-                    className="w-full text-left px-6 py-3 text-white hover:bg-white/10 transition-colors duration-200 border-b border-white/5 last:border-b-0"
+                    className="w-full text-left px-6 py-3 text-white hover:bg-[#3755AE]/20 hover:text-[#3755AE] transition-colors duration-200 border-b border-white/5 last:border-b-0"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     {item.name}

@@ -19,7 +19,7 @@ const imageLogos = [
 
  export default function LogoLoopDemo() {
   return (
-    <div className="">
+    <div className=" max-w-[1200px] mx-auto py-10 px-4 lg:px-10">
       {/* Basic horizontal loop */}
       <LogoLoop
         logos={imageLogos}

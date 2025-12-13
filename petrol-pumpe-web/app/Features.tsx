@@ -1,163 +1,114 @@
 'use client';
-import { JSX, useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
-import { ClipboardList, Users, BarChart3 } from "lucide-react";
 
-const FEATURES = [
+import Image from "next/image";
+
+const features = [
   {
-    id: "01",
     title: "Assign & Track Tasks",
     desc: "Supervisors assign nozzles and record opening readings instantly.",
-    icon: <ClipboardList size={24} />,
-    bgImage: "/cardservice/assignedShift.jpeg",
+    img: "/mockups/feature1.png", // Replace with a fuel station relevant image
+    bg: "bg-violet-100",
   },
   {
-    id: "02",
     title: "Employee Updates",
     desc: "Employees complete their shift and enter closing readings on time.",
-    icon: <Users size={24} />,
-    bgImage: "/cardservice/closingReading.png",
+    img: "/mockups/feature2.png", // Replace with a fuel station relevant image
+    bg: "bg-pink-100",
   },
   {
-    id: "03",
     title: "Instant Reports",
     desc: "Automatic summaries for each nozzle, shift, and employee.",
-    icon: <BarChart3 size={24} />,
-    bgImage: "/cardservice/assignedShift.jpeg",
+    img: "/mockups/feature3.png", // Replace with a fuel station relevant image
+    bg: "bg-yellow-100",
   },
   {
-    id: "04",
     title: "Smart Scheduling",
     desc: "Plan shifts and avoid manual errors completely.",
-    icon: <ClipboardList size={24} />,
-    bgImage: "/cardservice/closingReading.png",
+    img: "/mockups/feature4.png", // Replace with a fuel station relevant image
+    bg: "bg-lime-100",
   },
   {
-    id: "05",
     title: "Secure Cloud Backup",
     desc: "Your data stays protected & accessible anytime.",
-    icon: <Users size={24} />,
-    bgImage: "/cardservice/assignedShift.jpeg",
+    img: "/mockups/feature5.png", // Replace with a fuel station relevant image
+    bg: "bg-orange-100",
+    colSpan: 2,
   },
   {
-    id: "06",
     title: "AI Insights",
     desc: "Daily insights to reduce fuel loss & improve accuracy.",
-    icon: <BarChart3 size={24} />,
-    bgImage: "/cardservice/closingReading.png",
+    img: "/mockups/feature6.png", // Replace with a fuel station relevant image
+    bg: "bg-slate-100",
   },
 ];
 
-export default function FeaturesModern(): JSX.Element {
-  const sectionRef = useRef(null);
-  const [visible, setVisible] = useState(false);
-
-  // Intersection reveal
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting) {
-          setVisible(true);
-          obs.disconnect();
-        }
-      },
-      { threshold: 0.15 }
-    );
-    if (sectionRef.current) obs.observe(sectionRef.current);
-    return () => obs.disconnect();
-  }, []);
-
-  // GSAP animation
-  useEffect(() => {
-    if (visible) {
-      gsap.fromTo(
-        ".feature-card",
-        { y: 40, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.6,
-          ease: "power2.out",
-          stagger: 0.12,
-        }
-      );
-    }
-  }, [visible]);
-
+export default function FeaturesModern() {
   return (
-    <section ref={sectionRef} className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
-
-        {/* SMALL LABEL */}
-        <p className="text-center text-orange-200 font-semibold text-sm mb-2">
-          PREMIUM FEATURES
-        </p>
-
-        {/* TITLE */}
-        <h2 className="text-center text-3xl md:text-5xl font-bold text-slate-900 mb-14 leading-tight">
-          Tools Built for Efficient  
-          <br /> Fuel Station Management
-        </h2>
-
-        {/* GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {FEATURES.map((f, i) => (
-            <div
-              key={i}
-              className="
-                feature-card relative rounded-2xl overflow-hidden shadow-lg
-                bg-white/10 backdrop-blur-sm border border-white/20
-
-                hover:shadow-2xl hover:-translate-y-2 hover:bg-white/90
-                transition-all duration-300 group
-              "
-            >
-              {/* Background Image */}
-              <div
-                className="
-                  absolute inset-0 bg-cover bg-center 
-                  opacity-20 group-hover:opacity-30
-                  transition-opacity duration-300
-                "
-                style={{ backgroundImage: `url(${f.bgImage})` }}
-              />
-
-              {/* Subtle Gradient Overlay */}
-              <div className="
-                absolute inset-0 
-                bg-gradient-to-br from-white/10 via-transparent to-orange-50/20
-                group-hover:from-orange-100/20 group-hover:via-transparent group-hover:to-orange-200/30
-                transition-all duration-300
-              "></div>
-
-              {/* CONTENT */}
-              <div className="relative z-10 p-8">
-                
-                {/* Icon */}
-                <div className="
-                  bg-gradient-to-br from-orange-500 to-orange-200 rounded-xl h-12 w-12 flex items-center justify-center 
-                  shadow-md text-white mb-5
-                  group-hover:shadow-lg group-hover:scale-105
-                  transition-all duration-300   
-                ">
-                  {f.icon}
-                </div>
-
-                {/* Title */}
-                <h3 className="text-lg font-semibold text-slate-900 mb-2 group-hover:text-orange-800 transition-colors duration-300">
-                  {f.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-sm text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
-                  {f.desc}
-                </p>
+    <section className=" md:py-20 bg-slate-100">
+      <div className="max-w-6xl mx-auto px-4 md:px-8 bg-white py-12 rounded-4xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:grid-cols-3 lg:gap-8">
+          {/* Top Row */}
+          <div className="col-span-1 md:col-span-1 lg:col-span-1">
+            <FeatureCard {...features[0]} />
+          </div>
+          <div className="col-span-1 md:col-span-1 lg:col-span-1">
+            <FeatureCard {...features[1]} />
+          </div>
+          {/* Middle Row */}
+          <div className="col-span-1 md:col-span-1 lg:col-span-1 flex flex-col gap-6">
+            <div className="flex flex-row gap-6">
+              <div className="flex-1">
+                <FeatureCard {...features[2]} />
               </div>
-
+              <div className="flex-1">
+                <FeatureCard {...features[3]} />
+              </div>
             </div>
-          ))}
+          </div>
+          {/* Bottom Row */}
+          <div className="col-span-1 md:col-span-2 lg:col-span-2">
+            <FeatureCard {...features[4]} />
+          </div>
+          <div className="col-span-1 md:col-span-1 lg:col-span-1">
+            <FeatureCard {...features[5]} />
+          </div>
         </div>
       </div>
     </section>
+  );
+}
+
+type FeatureCardProps = {
+  title: string;
+  desc: string;
+  img: string;
+  bg: string;
+  colSpan?: number;
+};
+
+function FeatureCard({ title, desc, img, bg, colSpan }: FeatureCardProps) {
+  return (
+    <div
+      className={`rounded-3xl p-6 md:p-8 flex flex-col h-full shadow-sm ${bg} ${colSpan ? `md:col-span-${colSpan}` : ""}`}
+    >
+      <div className="flex-1 flex flex-col justify-between">
+        <div>
+          <h3 className="font-bold text-xl md:text-2xl text-slate-900 mb-2">{title}</h3>
+          <p className="text-slate-700 text-base mb-4">{desc}</p>
+        </div>
+        <div className="flex justify-end items-end">
+          <div className="relative w-28 h-28 md:w-32 md:h-32">
+            {/* Replace with actual illustration or icon */}
+            <Image
+              src={img}
+              alt={title}
+              fill
+              className="object-contain"
+              sizes="(max-width: 768px) 112px, 128px"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

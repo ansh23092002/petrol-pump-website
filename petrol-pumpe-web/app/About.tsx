@@ -4,11 +4,11 @@ import StatsBar from "./components/StatsBar";
 
 export default function AboutPage(): JSX.Element {
   return (
-    <main className="bg-[#fff8ef] py-20">
+    <main className="bg-slate-100 py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 text-center">
 
         {/* Section label */}
-        <p className="text-sm font-semibold text-orange-500 mb-4">
+        <p className="text-sm font-semibold bg-[#3755AE] mb-4 text-white w-32 mx-auto px-3 py-1 rounded-full">
           About Us
         </p>
 
@@ -39,7 +39,10 @@ export default function AboutPage(): JSX.Element {
         </div>
 
       </div>
+      <div className=" mt-10">
+
         <StatsBar />
+      </div>
     </main>
   );
 }
