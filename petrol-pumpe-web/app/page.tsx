@@ -7,31 +7,24 @@ import CTA from "./CTA";
 import Footer from "./components/Footer";
 import AboutPage from "./About";
 import WhyChooseUs from "./WhyChooseUs";
-import DownloadApp from "./components/DownloadApp";
-import AnimatedBackground from "./components/ui/AnimatedBackground";
 import LogoLoopDemo from "./components/logoloop";
 export default function Home() {
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen bg-gray-100 ">
       <Navbar />
-       <main className="relative">
-      <AnimatedBackground />
-
-      {/* YOUR PAGE CONTENT */}
-      <section className="relative z-10">
-       
+ 
+    
       <Hero />
       <AboutPage />
       <Features />
       <WhyChooseUs />
       <LogoLoopDemo />
-      <DownloadApp /> 
+     
       <Testimonials />
       <CTA />
      
       <Footer />
-      </section>
-    </main>
-    </div>
+   
+        </div>
   );
 }

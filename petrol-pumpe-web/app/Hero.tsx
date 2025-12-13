@@ -46,7 +46,7 @@ export default function HeroSection(): JSX.Element {
   />
 
   {/* Soft Overlay */}
-  <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/40 to-transparent" />
+  <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-black/10 to-transparent" />
 
   <div className="relative z-10 flex min-h-screen items-center">
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 w-full">

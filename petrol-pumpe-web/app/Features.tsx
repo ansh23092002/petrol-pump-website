@@ -89,7 +89,7 @@ export default function FeaturesModern(): JSX.Element {
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
         {/* SMALL LABEL */}
-        <p className="text-center text-orange-600 font-semibold text-sm mb-2">
+        <p className="text-center text-orange-200 font-semibold text-sm mb-2">
           PREMIUM FEATURES
         </p>
 
@@ -105,44 +105,51 @@ export default function FeaturesModern(): JSX.Element {
             <div
               key={i}
               className="
-                feature-card relative rounded-xl overflow-hidden shadow-md
-                bg-white border border-slate-200
+                feature-card relative rounded-2xl overflow-hidden shadow-lg
+                bg-white/10 backdrop-blur-sm border border-white/20
 
-                hover:shadow-xl hover:-translate-y-2
-                transition-all duration-300
+                hover:shadow-2xl hover:-translate-y-2 hover:bg-white/90
+                transition-all duration-300 group
               "
             >
               {/* Background Image */}
               <div
                 className="
                   absolute inset-0 bg-cover bg-center 
-                  opacity-60 group-hover:opacity-80
+                  opacity-20 group-hover:opacity-30
                   transition-opacity duration-300
                 "
                 style={{ backgroundImage: `url(${f.bgImage})` }}
               />
 
-              {/* Dark overlay for readability */}
-              <div className="absolute inset-0 bg-black/30"></div>
+              {/* Subtle Gradient Overlay */}
+              <div className="
+                absolute inset-0 
+                bg-gradient-to-br from-white/10 via-transparent to-orange-50/20
+                group-hover:from-orange-100/20 group-hover:via-transparent group-hover:to-orange-200/30
+                transition-all duration-300
+              "></div>
 
               {/* CONTENT */}
               <div className="relative z-10 p-8">
                 
                 {/* Icon */}
                 <div className="
-                  bg-white/90 rounded-xl h-12 w-12 flex items-center justify-center 
-                  shadow-sm text-slate-900 mb-5
+                  bg-gradient-to-br from-orange-500 to-orange-200 rounded-xl h-12 w-12 flex items-center justify-center 
+                  shadow-md text-white mb-5
+                  group-hover:shadow-lg group-hover:scale-105
+                  transition-all duration-300   
                 ">
                   {f.icon}
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg font-semibold text-white mb-2">
+                <h3 className="text-lg font-semibold text-slate-900 mb-2 group-hover:text-orange-800 transition-colors duration-300">
                   {f.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm text-white/90 leading-relaxed">
+                <p className="text-sm text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
                   {f.desc}
                 </p>
               </div>

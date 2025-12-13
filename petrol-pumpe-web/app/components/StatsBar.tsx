@@ -80,7 +80,7 @@ export default function StatsBar(): JSX.Element {
   }, [visible]);
 
   return (
-    <section className="py-10" ref={ref}>
+    <section className="py-10  " ref={ref}>
       <div className="mx-auto px-6 lg:px-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 rounded-xl p-6">
           {STATS.map((item, index) => {

@@ -1,102 +1,91 @@
-'use client';
 import Image from "next/image";
-import { JSX, useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
 
-type Testimonial = {
-  name: string;
-  message: string;
-  image: string;
-  active?: boolean;
-};
-
-const TESTIMONIALS: Testimonial[] = [
+const testimonials = [
   {
-    name: "David Johnson",
-    message: "Made our daily readings simple and error-free.",
-    image: "/userphoto.jpg",
+    id: 1,
+    name: "Alex Morgan",
+    image: "https://randomuser.me/api/portraits/men/32.jpg",
   },
   {
-    name: "David Johnson",
-    message: "Made our daily readings simple and error-free.",
-    image: "/userphoto.jpg",
-    active: true,
+    id: 2,
+    name: "Sarah Johnson",
+    image: "https://randomuser.me/api/portraits/women/44.jpg",
   },
   {
-    name: "David Johnson",
-    message: "Made our daily readings simple and error-free.",
-    image: "/userphoto.jpg",
+    id: 3,
+    name: "Daniel Lee",
+    image: "https://randomuser.me/api/portraits/men/65.jpg",
+  },
+  {
+    id: 4,
+    name: "Emily Carter",
+    image: "https://randomuser.me/api/portraits/women/68.jpg",
+  },
+  {
+    id: 5,
+    name: "Michael Smith",
+    image: "https://randomuser.me/api/portraits/men/12.jpg",
+  },
+  {
+    id: 6,
+    name: "Olivia Brown",
+    image: "https://randomuser.me/api/portraits/women/21.jpg",
   },
 ];
 
-export default function Footer(): JSX.Element {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new window.IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (visible && sectionRef.current) {
-      gsap.fromTo(
-        sectionRef.current.querySelectorAll('.testimonials-animate'),
-        { y: 40, opacity: 0 },
-        { y: 0, opacity: 1, stagger: 0.15, duration: 0.7, ease: 'power3.out' }
-      );
-    }
-  }, [visible]);
-
+export default function Testimonials() {
   return (
-    <section className="bg-[#fff8ef] py-24" ref={sectionRef}>
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 text-center">
-        {/* Section label */}
-        <p className="testimonials-animate text-sm font-semibold text-orange-500 mb-3">
-          Testimonials
-        </p>
-        {/* Cards */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-          {TESTIMONIALS.map((item, index) => (
-            <div
-              key={index}
-              className={`testimonials-animate relative rounded-xl bg-white p-8 shadow-sm transition
-                ${
-                  item.active
-                    ? "border-2 border-blue-500 scale-105"
-                    : "border border-slate-200"
-                }
-              `}
-            >
-              {/* Avatar */}
-              <div className="absolute -top-10 left-1/2 -translate-x-1/2">
-                <div className="h-20 w-20 rounded-full overflow-hidden border-4 border-white shadow">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    width={80}
-                    height={80}
-                  />
-                </div>
-              </div>
-              {/* Content */}
-              <div className="pt-12">
-                <h4 className="font-semibold text-slate-900">
-                  {item.name}
-                </h4>
-                <p className="mt-3 text-sm text-slate-600 leading-relaxed">
-                  {item.message}
-                </p>
-              </div>
+    <section className="w-full py-20 bg-gray-100 flex justify-center">
+      <div className="relative w-full max-w-6xl px-6">
+        {/* Center Card */}
+        <div className="relative bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
+          {/* Floating avatar tiles (desktop) */}
+          <div className="hidden md:block absolute -top-12 left-0 right-0 pointer-events-none">
+            <div className="relative mx-auto w-full max-w-5xl" style={{height:120}}>
+              {testimonials.map((t, i) => {
+                const left = `${6 + i * 14}%`;
+                const rotate = (i % 2 === 0 ? -6 : 6) + (i % 3) * 2;
+                return (
+                  <div
+                    key={t.id}
+                    className="absolute bg-white rounded-2xl p-2 shadow-xl"
+                    style={{ left, top: 0, transform: `rotate(${rotate}deg)` }}
+                  >
+                    <Image src={t.image} alt={t.name} width={110} height={110} className="rounded-xl object-cover" />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="px-8 lg:px-16 py-24 text-center">
+            <span className="inline-block rounded-full bg-gray-200 px-4 py-1 text-sm font-medium text-gray-700">
+              Testimonials
+            </span>
+
+            <h2 className="mt-6 text-4xl md:text-5xl font-extrabold text-gray-900">
+              Trusted by leaders
+              <span className="block text-gray-500">from various industries</span>
+            </h2>
+
+            <p className="mt-6 text-gray-600 max-w-2xl mx-auto">
+              Learn why professionals trust our solutions to complete their customer journeys.
+            </p>
+
+            <div className="mt-10">
+              <button className="inline-flex items-center gap-3 rounded-full bg-black px-6 py-3 text-sm font-medium text-white shadow hover:opacity-95 transition">
+                Read Success Stories
+                <span className="inline-block bg-white/10 px-3 py-1 rounded-full text-xs">→</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile avatar grid under the card */}
+        <div className="mt-8 flex flex-wrap justify-center gap-4 md:hidden">
+          {testimonials.map((item) => (
+            <div key={item.id} className="rounded-xl bg-white p-2 shadow-md">
+              <Image src={item.image} alt={item.name} width={72} height={72} className="rounded-lg object-cover" />
             </div>
           ))}
         </div>

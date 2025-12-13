@@ -68,7 +68,7 @@ export default function Navbar(): JSX.Element {
         isScrolled ? 'bg-black/80 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}
     >
-      <div className="mx-auto px-4 sm:px-6 lg:px-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <div className="flex h-16 md:h-20 items-center justify-between text-white">
           
           {/* Logo */}
