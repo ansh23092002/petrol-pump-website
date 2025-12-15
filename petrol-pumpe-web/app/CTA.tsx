@@ -34,7 +34,7 @@ export default function CTA(): JSX.Element {
   }, [visible]);
 
   return (
-    <section ref={sectionRef} className="cta-animate relative -mt-32 z-20">
+    <section id="download" ref={sectionRef} className="cta-animate relative -mt-32 z-20">
 
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden">

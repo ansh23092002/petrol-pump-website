@@ -79,7 +79,7 @@ export default function WhyChooseUs(): JSX.Element {
   }, [visible]);
 
   return (
-    <section className="bg-slate-50 py-20" ref={sectionRef}>
+    <section id="whychooseus" className="bg-slate-50 py-20" ref={sectionRef}>
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         
         {/* Top Heading Section */}
@@ -115,7 +115,7 @@ export default function WhyChooseUs(): JSX.Element {
                   key={index}
                   className="flex items-start gap-3 text-slate-700 text-sm md:text-base"
                 >
-                  <CheckCircle2 size={22} className="text-[#3755AE] mt-0.5 flex-shrink-0" />
+                  <CheckCircle2 size={22} className="text-[#3755AE] mt-0.5 " />
                   <span>{item}</span>
                 </li>
               ))}

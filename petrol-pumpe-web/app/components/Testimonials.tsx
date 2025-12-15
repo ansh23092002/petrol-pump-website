@@ -7,12 +7,12 @@ const testimonials = [
   { id: 3, name: "Daniel Lee", img: "https://randomuser.me/api/portraits/men/65.jpg" },
   { id: 4, name: "Emily Carter", img: "https://randomuser.me/api/portraits/women/68.jpg" },
   { id: 5, name: "Michael Smith", img: "/coustomer-revieow/review2.jpeg" },
-  { id: 6, name: "Olivia Brown", img: "https://randomuser.me/api/portraits/women/21.jpg" },
+  // { id: 6, name: "Olivia Brown", img: "https://randomuser.me/api/portraits/women/21.jpg" },
 ];
 
 export default function Testimonials() {
   return (
-    <section className="relative w-full py-14 bg-slate-100 overflow-hidden mb-30">
+    <section id="reviews" className="relative w-full py-14 bg-slate-100 overflow-hidden mb-30">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
 
         {/* Desktop Layout - Modern Centered Card like Footer */}
@@ -45,7 +45,7 @@ export default function Testimonials() {
           <div className="relative bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
             
             {/* Gradient Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 opacity-60" />
+            <div className="absolute inset-0  from-slate-50 via-white to-blue-50/30 opacity-60" />
             
             {/* Content */}
             <div className="relative px-8 lg:px-16 py-20 lg:py-24 text-center">
@@ -61,7 +61,7 @@ export default function Testimonials() {
               {/* Heading */}
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] tracking-tight">
                 Trusted by leaders
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-500 mt-2">
+                <span className="block text-transparent bg-clip-text  from-gray-400 to-gray-500 mt-2">
                   from various industries
                 </span>
               </h2>

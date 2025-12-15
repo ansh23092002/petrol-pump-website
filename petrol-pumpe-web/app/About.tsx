@@ -4,7 +4,7 @@ import StatsBar from "./components/StatsBar";
 
 export default function AboutPage(): JSX.Element {
   return (
-    <main className="bg-slate-100 py-20">
+    <main id="about" className="bg-slate-100 py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 text-center">
 
         {/* Section label */}

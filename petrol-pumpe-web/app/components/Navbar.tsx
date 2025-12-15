@@ -8,10 +8,10 @@ import { Menu, X } from "lucide-react";
 const NAV_ITEMS = [
   { name: "About Us", href: "#about" },
   { name: "Features", href: "#features" },
-  { name: "Download", href: "https://play.google.com/store/apps/developer?id=Inext+Software+Solutions&hl=en_IN" },
-  { name: "Pricing", href: "#pricing" },
+  { name: "Why Choose Us", href: "#whychooseus" },
+  { name: "Partners", href: "#partners" },
   { name: "Reviews", href: "#reviews" },
-  { name: "Contact", href: "#contact" },
+  { name: "Download", href: "http://play.google.com/store/apps/developer?id=Inext+Software+Solutions&hl=en_IN" },
 ];
 
 export default function Navbar(): JSX.Element {
@@ -55,9 +55,19 @@ export default function Navbar(): JSX.Element {
       return;
     }
     
-    const element = document.querySelector(href);
+    // Remove the # to get the id
+    const targetId = href.replace('#', '');
+    const element = document.getElementById(targetId);
+    
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const navbarHeight = 80; // Height of fixed navbar
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -94,7 +104,7 @@ export default function Navbar(): JSX.Element {
               <li key={item.name}>
                 <button
                   onClick={() => scrollToSection(item.href)}
-                  className="px-4 py-2 rounded-lg hover:bg-[#3755AE]/20 hover:text-[#3755AE] transition-all duration-200 relative group"
+                  className="px-4 py-2 rounded-lg   transition-all duration-200 relative group"
                 >
                   {item.name}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#3755AE] group-hover:w-full transition-all duration-300"></span>

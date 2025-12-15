@@ -14,12 +14,12 @@ const imageLogos = [
   { src: "/logos/bpjio.png", alt: "BP Jio", href: "#" },
   { src: "/logos/HP.png", alt: "Hindustan Petroleum", href: "#" },
   { src: "/logos/jio.png", alt: "Jio", href: "#" },
-  { src: "/logos/indianOilLogo.png", alt: "Indian Oil", href: "#" },
+  { src: "/logos/IndianOilLogo.png", alt: "Indian Oil", href: "#" },
 ];
 
  export default function LogoLoopDemo() {
   return (
-    <div className=" max-w-[1200px] mx-auto py-10 px-4 lg:px-10">
+    <div id="partners" className=" max-w-[1200px] mx-auto py-10 px-4 lg:px-10">
       {/* Basic horizontal loop */}
       <LogoLoop
         logos={imageLogos}
