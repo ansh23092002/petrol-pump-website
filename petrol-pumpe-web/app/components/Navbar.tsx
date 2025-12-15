@@ -80,8 +80,8 @@ export default function Navbar(): JSX.Element {
               height={48} 
               className="group-hover:scale-105 transition-transform duration-200"
             />
-            <span className="text-2xl font-bold text-[#3755AE] tracking-tight">
-              FuelTrack
+            <span className="text-2xl font-bold  tracking-tight">
+              Fuel Track
             </span>
           </Link>
 

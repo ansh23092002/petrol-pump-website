@@ -101,14 +101,14 @@ export default function PhoneMockup(): JSX.Element {
         className="flex phone-mockup relative z-10 rounded-4xl overflow-hidden"
       >
         {images.map((src, index) => (
-          <div key={index} className="shrink-0 w-60 md:w-[280px] lg:w-[300px]">
+          <div key={index} className="shrink-0 w-60 md:w-[280px] lg:w-[300px] h-[480px] md:h-[560px] lg:h-[600px] relative">
             <Image
               src={src}
               alt={`Mobile App Preview ${index + 1}`}
               width={300}
               height={600}
               priority={index === 0}
-              className=" object-contain"
+              className="object-cover w-full h-full"
             />
           </div>
         ))}

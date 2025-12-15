@@ -8,6 +8,7 @@ export interface BentoCardProps {
   label?: string;
   textAutoHide?: boolean;
   disableAnimations?: boolean;
+  img?: string;
 }
 
 export interface BentoProps {
@@ -196,7 +197,7 @@ const ParticleCard: React.FC<{
         });
       }, index * 100);
 
-      timeoutsRef.current.push(timeoutId);
+      timeoutsRef.current.push(timeoutId as unknown as number);
     });
   }, [initializeParticles]);
 

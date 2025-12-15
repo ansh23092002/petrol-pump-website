@@ -3,10 +3,10 @@ import { Quote } from "lucide-react";
 
 const testimonials = [
   { id: 1, name: "Ansh  sharma ", img: "https://randomuser.me/api/portraits/men/32.jpg" },
-  { id: 2, name: "Sarah Johnson", img: "https://randomuser.me/api/portraits/women/44.jpg" },
+  { id: 2, name: "Sarah Johnson", img: '/coustomer-revieow/review3.jpeg' },
   { id: 3, name: "Daniel Lee", img: "https://randomuser.me/api/portraits/men/65.jpg" },
   { id: 4, name: "Emily Carter", img: "https://randomuser.me/api/portraits/women/68.jpg" },
-  { id: 5, name: "Michael Smith", img: "https://randomuser.me/api/portraits/men/12.jpg" },
+  { id: 5, name: "Michael Smith", img: "/coustomer-revieow/review2.jpeg" },
   { id: 6, name: "Olivia Brown", img: "https://randomuser.me/api/portraits/women/21.jpg" },
 ];
 

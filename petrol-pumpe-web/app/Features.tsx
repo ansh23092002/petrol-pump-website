@@ -4,7 +4,7 @@ import MagicBento from "@/app/components/ui/MagicBento";
 
 export default function FeaturesModern() {
   return (
-    <section className="py-12 md:py-24 bg-[#4f7afa]">
+    <section className="py-12 md:py-24 bg-[#638eeb]">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="text-center mb-8 md:mb-12">
           <p className="text-white font-semibold text-sm mb-2">FUELTRACK FEATURES</p>

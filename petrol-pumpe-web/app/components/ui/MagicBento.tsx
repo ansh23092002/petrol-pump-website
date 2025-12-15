@@ -9,6 +9,7 @@ export interface BentoCardProps {
   label?: string;
   textAutoHide?: boolean;
   disableAnimations?: boolean;
+  img: string;
 }
 
 export interface BentoProps {
@@ -68,8 +69,8 @@ const cardData: BentoCardProps[] = [
   },
   {
     color: '#3755AE',
-    title: 'AI Insights',
-    description: 'Daily insights to reduce fuel loss & improve accuracy.',
+    title: 'Customer Support',
+    description: 'Help for your staff and management, whenever you need it.',
  
     img: '/cardservice/closingReading.png'
   }
@@ -203,7 +204,7 @@ const ParticleCard: React.FC<{
         });
       }, index * 100);
 
-      timeoutsRef.current.push(timeoutId);
+      timeoutsRef.current.push(timeoutId as unknown as number);
     });
   }, [initializeParticles]);
 
@@ -755,12 +756,10 @@ const MagicBento: React.FC<BentoProps> = ({
                   clickEffect={clickEffect}
                   enableMagnetism={enableMagnetism}
                 >
-                  {card.img && (
-                    <div className="absolute inset-0 z-0">
-                      <Image src={card.img} alt={card.title} fill className="object-cover" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    </div>
-                  )}
+                  <div className="absolute inset-0 z-0">
+                    <Image src={card.img as string} alt={card.title || 'Card image'} fill className="object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  </div>
                   <div className="card__info">
                     <div className="card__header flex justify-between gap-3 relative z-10 text-white">
                       <span className="card__label text-base">{card.label}</span>
@@ -893,12 +892,10 @@ const MagicBento: React.FC<BentoProps> = ({
                   el.addEventListener('click', handleClick);
                 }}
               >
-                {card.img && (
-                  <div className="absolute inset-0 z-0">
-                    <Image src={card.img} alt={card.title} fill className="object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  </div>
-                )}
+                <div className="absolute inset-0 z-0">
+                  <Image src={card.img as string} alt={card.title || 'Card image'} fill className="object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                </div>
                 <div className="card__info">
                   <div className="card__header flex justify-between gap-3 relative z-10 text-white">
                     <span className="card__label text-base">{card.label}</span>

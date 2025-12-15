@@ -11,7 +11,7 @@ const STATS: StatItem[] = [
   { value: "500+", label: "Active Stations" },
   { value: "₹2Cr+", label: "Daily Transactions" },
   { value: "99.9%", label: "Uptime" },
-  { value: "4.9/5", label: "Customer Rating" },
+  { value: "4.0/5", label: "Customer Rating" },
 ];
 
 function parseValue(value: string) {
