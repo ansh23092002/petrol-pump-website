@@ -4,6 +4,8 @@ import SocialDock from "./Components/SocialDock";
 import AboutSection from "./Components/About";
 import { ProjectsSection, BlogSection, ContactSection, SettingsSection } from "./Components/Sections";
 import PreFooterSection from "./Components/PreFooterSection";
+import TeamSection from "./Components/TeamSection";
+import ContactForm from "./Components/ContactForm";
 
 export default function Home() {
   return (
@@ -17,6 +19,8 @@ export default function Home() {
       <BlogSection />
       <ContactSection />
       <SettingsSection />
+      <TeamSection />
+      <ContactForm />
       <PreFooterSection />
     </main>
   );

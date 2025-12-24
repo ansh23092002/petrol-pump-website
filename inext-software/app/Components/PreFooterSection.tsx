@@ -60,6 +60,17 @@ export default function PreFooterHero() {
             >
               INEXT
             </h1>
+              {/* Tagline */}
+            {/* <p
+              className="
+                mt-4
+                text-[10px] sm:text-xs
+                tracking-[0.35em]
+                text-white/80 absolute 
+              "
+            >
+            (INEXT SOFTWARE SOLUTIONS)
+            </p> */}
           </div>
         </div>
 

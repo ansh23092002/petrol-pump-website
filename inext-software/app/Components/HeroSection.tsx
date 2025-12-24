@@ -8,7 +8,7 @@ import { BackgroundEffects } from "./BackgroundEffects";
 
 export default function HeroSection() {
   return (
-    <section id="hero" className="relative min-h-screen bg-gradient-to-b from-[#0a0a1f] via-[#0d1128] to-[#0a0a1f] overflow-hidden pt-32">
+    <section id="hero" className="relative min-h-screenoverflow-hidden pt-32">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image

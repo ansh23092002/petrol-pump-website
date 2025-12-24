@@ -16,9 +16,9 @@ export function BackgroundEffects() {
       {/* Radial gradient overlay for depth */}
       <div className="absolute inset-0 bg-radial-gradient"></div>
 
-      {/* Animated gradient lines */}
+      {/* Animated gradient lines
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent animate-shimmer"></div>
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent animate-shimmer animation-delay-1000"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent animate-shimmer animation-delay-1000"></div> */}
     </>
   );
 }

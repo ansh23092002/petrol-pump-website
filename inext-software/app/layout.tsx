@@ -5,7 +5,7 @@ import Navbar from "./Components/Navbar";
 import SnowfallEffect from "./Components/SnowfallEffect";
 
 // Admin Config - Change this value to enable/disable snowfall
-export const SNOWFALL_ENABLED = true;
+export const SNOWFALL_ENABLED = false;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0A0B1E]`}
       >
        <Navbar />
         {children}

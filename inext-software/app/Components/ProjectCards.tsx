@@ -608,7 +608,7 @@ export function ProjectCards({
   }, [galleryItems, bend, textColor, borderRadius, font, scrollSpeed, scrollEase]);
 
   return (
-    <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[500px]">
+    <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[5 00px]">
       {/* Gradient Overlay at top */}
      
       
