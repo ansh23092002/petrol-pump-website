@@ -45,7 +45,7 @@ export default function ContactForm() {
           speed={0}
           squareSize={55}
           direction="diagonal"
-          borderColor="#d1d5db"
+          borderColor="#ffffff"
           hoverFillColor="#FEFDFD"
         />
       </div>

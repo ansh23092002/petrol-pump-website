@@ -111,28 +111,3 @@ export function ContactSection() {
   );
 }
 
-export function SettingsSection() {
-  return (
-    <section id="settings" className="relative min-h-screen py-20 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Settings & Preferences</h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Customize your experience and manage your account settings.
-          </p>
-        </div>
-        <div className="max-w-2xl mx-auto space-y-6">
-          {['Theme', 'Notifications', 'Privacy', 'Account'].map((setting) => (
-            <div key={setting} className="p-6 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 flex items-center justify-between shadow-sm">
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900">{setting}</h3>
-                <p className="text-gray-500 text-sm">Manage your {setting.toLowerCase()} preferences</p>
-              </div>
-              <button className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-all">Edit</button>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
