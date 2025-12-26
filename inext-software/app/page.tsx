@@ -1,3 +1,4 @@
+import {GlobalNetworkSection  } from "./Components/GlobalCloudNetwork";
 import HeroSection from "./Components/HeroSection";
 import Navbar from "./Components/Navbar";
 import SocialDock from "./Components/SocialDock";
@@ -6,13 +7,17 @@ import { ProjectsSection, BlogSection, ContactSection } from "./Components/Secti
 import PreFooterSection from "./Components/PreFooterSection";
 import TeamSection from "./Components/TeamSection";
 import ContactForm from "./Components/ContactForm";
-import MagicFooter from "./Components/footer";
+
+import Testimonial from "./Components/Testimonial";
 import SectionNavigation from "./Components/SectionNavigation";
+
+
+
 
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <Navbar />
+
       <SectionNavigation />
       {/* <SocialDock /> */}
       <div id="hero">
@@ -23,16 +28,21 @@ export default function Home() {
       </div>
       {/* <AboutSection /> */}
       
-    
-      <div id="team">
-        <TeamSection />
-      </div>
+        <Testimonial />
+        <div id="global-cloud-network">
+        </div>
+        <div id="team">
+          <TeamSection />
+
+        </div>
+
+          <GlobalNetworkSection />
+        
       <div id="contact">
         <ContactForm />
       </div>
-      <PreFooterSection />
       <div id="footer">
-        <MagicFooter/>
+      <PreFooterSection />
       </div>
     </main>
   );

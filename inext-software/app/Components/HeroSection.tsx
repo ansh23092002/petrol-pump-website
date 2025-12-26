@@ -8,7 +8,7 @@ import { BackgroundEffects } from "./BackgroundEffects";
 
 export default function HeroSection() {
   return (
-    <section id="hero" className="relative min-h-screenoverflow-hidden pt-32">
+    <section id="hero" className="relative min-h-screen overflow-hidden pt-32">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -94,9 +94,9 @@ export default function HeroSection() {
   viewBox="0 0 24 24"
   fill="none"
   stroke="white"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
+  strokeWidth="2"
+  strokeLinecap="round"
+  strokeLinejoin="round"
 >
   <polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9" />
 </svg>
@@ -109,9 +109,9 @@ export default function HeroSection() {
   viewBox="0 0 24 24"
   fill="none"
   stroke="white"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
+  strokeWidth="2"
+  strokeLinecap="round"
+  strokeLinejoin="round"
 >
   <polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9" />
 </svg>
@@ -124,9 +124,9 @@ export default function HeroSection() {
   viewBox="0 0 24 24"
   fill="none"
   stroke="white"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
+  strokeWidth="2"
+  strokeLinecap="round"
+  strokeLinejoin="round"
 >
   <polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9" />
 </svg>
@@ -139,9 +139,9 @@ export default function HeroSection() {
   viewBox="0 0 24 24"
   fill="none"
   stroke="white"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
+  strokeWidth="2"
+  strokeLinecap="round"
+  strokeLinejoin="round"
 >
   <polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9" />
 </svg>
@@ -154,9 +154,9 @@ export default function HeroSection() {
   viewBox="0 0 24 24"
   fill="none"
   stroke="white"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
+  strokeWidth="2"
+  strokeLinecap="round"
+  strokeLinejoin="round"
 >
   <polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9" />
 </svg>

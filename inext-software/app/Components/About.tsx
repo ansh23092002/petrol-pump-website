@@ -5,6 +5,8 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import LogoLoop from "./ui/LogoLoop";
+import { LogoLoopComponent } from "./logoloop";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -36,9 +38,9 @@ export default function AboutSection() {
     <section
       ref={sectionRef}
       className="relative py-24 overflow-hidden text-black"
-      style={{
-        borderRadius: "49% 51% 0% 0% / 38% 38% 0% 0%",
-      }}
+        style={{
+          borderRadius: "49% 51% 0% 0% / 38% 38% 0% 0%",
+        }}
     >
       {/* ================= BACKGROUND ================= */}
       <div className="pointer-events-none absolute inset-0 -z-10">
@@ -72,6 +74,7 @@ export default function AboutSection() {
           </p>
         </div>
 
+        {/* <LogoLoopComponent /> */}
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 opacity-0">
           <Card>

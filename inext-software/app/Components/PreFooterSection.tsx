@@ -24,6 +24,8 @@ export default function PreFooterHero() {
         <div className="absolute inset-x-0 bottom-48 sm:bottom-44 md:bottom-44 lg:bottom-48 flex justify-center px-4 sm:px-6 md:px-12 lg:px-24">
           <div className="relative inline-block leading-none">
             {/* Main text */}
+
+            {/* Main text with stylized 'I' */}
             <h1
               className="
                 text-[60px] xs:text-[80px] sm:text-[110px] md:text-[170px] lg:text-[210px]
@@ -32,13 +34,12 @@ export default function PreFooterHero() {
                 text-transparent bg-clip-text
                 bg-gradient-to-t from-white via-white to-white/40
                 drop-shadow-[0_20px_40px_rgba(0,0,0,0.9)] md:drop-shadow-[0_40px_80px_rgba(0,0,0,0.9)]
-                text-center
-              "
+                text-center flex items-center justify-center"
             >
-              INEXT
+              <span className="italic font-extrabold text-white lowercase" style={{fontFamily: 'serif', fontStyle: 'italic', fontWeight: 900}}>i-</span>NEXT
             </h1>
 
-            {/* Bottom reflection */}
+            {/* Bottom reflection with stylized 'I' */}
             <h1
               aria-hidden="true"
               className="
@@ -55,10 +56,9 @@ export default function PreFooterHero() {
                 [filter:blur(0.5px)] sm:[filter:blur(1px)]
                 [-webkit-mask-image:linear-gradient(to_bottom,rgba(0,0,0,0.9),transparent)]
                 [mask-image:linear-gradient(to_bottom,rgba(0,0,0,0.9),transparent)]
-                text-center
-              "
+                text-center flex items-center justify-center"
             >
-              INEXT
+              <span className="italic font-extrabold text-white lowercase" style={{fontFamily: 'serif', fontStyle: 'italic', fontWeight: 900}}>i-</span>NEXT
             </h1>
               {/* Tagline */}
             {/* <p
@@ -79,10 +79,10 @@ export default function PreFooterHero() {
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6">
             <div>
               <p className="text-white text-base sm:text-lg md:text-xl lg:text-2xl font-semibold">
-                Build modern web products with confidence
+                Build modern digital solutions with confidence
               </p>
               <p className="text-emerald-400 text-xs sm:text-sm md:text-base mt-1 sm:mt-2">
-                Next.js • React • Tailwind CSS
+                Powered by <span className="font-bold">INEXT SOFTWARE SOLUTIONS</span>
               </p>
             </div>
 

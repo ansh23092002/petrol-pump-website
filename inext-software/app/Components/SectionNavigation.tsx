@@ -3,15 +3,17 @@
 import { useEffect, useState } from "react";
 
 const sections = [
-  { id: "hero", label: "Navigate your next" },
-  { id: "about", label: "About Us" },
-  { id: "team", label: "Our Team" },
-  { id: "contact", label: "Contact Us" },
-  { id: "footer", label: "Footer" },
+  { id: "hero", label: "Navigate your next", isDark: true },
+  { id: "about", label: "About Us", isDark: false },
+  { id: "testimonials", label: "Testimonials", isDark: true },
+  { id: "team", label: "Our Team", isDark: false },
+  { id: "contact", label: "Contact Us", isDark: false },
+  { id: "footer", label: "Explore More", isDark: true },
 ];
 
 export default function SectionNavigation() {
   const [activeSection, setActiveSection] = useState("");
+  const [isDarkBg, setIsDarkBg] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +25,7 @@ export default function SectionNavigation() {
           const sectionTop = section.offsetTop;
           if (scrollPosition >= sectionTop) {
             setActiveSection(sections[i].id);
+            setIsDarkBg(sections[i].isDark);
             break;
           }
         }
@@ -55,8 +58,8 @@ export default function SectionNavigation() {
             <div
               className={`h-0.5 transition-all duration-300 ${
                 activeSection === section.id
-                  ? "w-12 bg-white"
-                  : "w-8 bg-white/40 group-hover:w-10 group-hover:bg-white/60"
+                  ? isDarkBg ? "w-12 bg-white" : "w-12 bg-black"
+                  : isDarkBg ? "w-8 bg-white/40 group-hover:w-10 group-hover:bg-white/60" : "w-8 bg-black/40 group-hover:w-10 group-hover:bg-black/60"
               }`}
             />
             
@@ -64,8 +67,8 @@ export default function SectionNavigation() {
             <span
               className={`ml-3 text-sm font-medium whitespace-nowrap transition-all duration-300 ${
                 activeSection === section.id
-                  ? "text-white opacity-100 translate-x-0"
-                  : "text-white/0 opacity-0 -translate-x-4 pointer-events-none"
+                  ? isDarkBg ? "text-white opacity-100 translate-x-0" : "text-black opacity-100 translate-x-0"
+                  : isDarkBg ? "text-white/0 opacity-0 -translate-x-4 pointer-events-none" : "text-black/0 opacity-0 -translate-x-4 pointer-events-none"
               }`}
             >
               {section.label}
