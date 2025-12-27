@@ -397,7 +397,7 @@ class App {
   start: number = 0;
 
   constructor(container: HTMLElement, config: AppConfig) {
-    const { items, bend = 1, textColor = '#ffffff', borderRadius = 0, font = 'bold 30px Figtree', scrollSpeed = 2, scrollEase = 0.05 } = config;
+    const { items, bend = 1, textColor = '#1a1a1a', borderRadius = 0, font = 'bold 30px Figtree', scrollSpeed = 2, scrollEase = 0.05 } = config;
     document.documentElement.classList.remove('no-js');
     this.container = container;
     this.scrollSpeed = scrollSpeed;
@@ -617,9 +617,7 @@ export function ProjectCards({
         className="w-full h-full overflow-hidden cursor-grab active:cursor-grabbing touch-pan-x" 
         ref={containerRef} 
       />
-      
-      {/* Gradient Overlay at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-20 sm:h-24 md:h-32 bg-gradient-to-t from-[#0a0a1f] to-transparent z-10 pointer-events-none" />
+
     </div>
   );
 }

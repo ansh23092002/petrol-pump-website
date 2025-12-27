@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
-import SectionNavigation from "./SectionNavigation";
+
 
 // Testimonial data for iNext Software clients
 const testimonials = [
@@ -110,7 +110,7 @@ export default function Testimonial() {
       <div className="max-w-7xl mx-auto flex flex-row">
         {/* Section Navigation (visible only on large screens) */}
         <div className="hidden lg:block">
-          <SectionNavigation />
+    
         </div>
         
         {/* Main Content Container */}
