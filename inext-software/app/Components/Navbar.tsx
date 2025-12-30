@@ -26,18 +26,6 @@ export default function Navbar() {
       return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Initial entrance animation (uses actual navbar height for smoothness)
-    useEffect(() => {
-      const el = navbarRef.current;
-      if (!el) return;
-      const height = el.getBoundingClientRect().height || 100;
-      gsap.fromTo(
-        el,
-        { y: -height, opacity: 0 },
-        { y: 0, opacity: 1, duration: 2, ease: "power1.out" }
-      );
-    }, []);
-
     // Animate show/hide smoothly with GSAP on scroll
     useEffect(() => {
       const el = navbarRef.current;
