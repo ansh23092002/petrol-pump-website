@@ -7,6 +7,37 @@ export const metadata: Metadata = {
 };
 
 export default function InsightsPage() {
+  return (
+    <main className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-white pt-28 pb-20">
+        <svg
+          className="absolute bottom-0 left-0 w-full h-[200px]"
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+        >
+          <path
+            fill="#f8fafc"
+            d="M0,224 C120,200 240,160 360,154 C480,149 600,181 720,192 C840,203 960,192 1080,170 C1200,149 1320,117 1440,106 L1440,320 L0,320 Z"
+          />
+        </svg>
+        <div className="relative z-10 mx-auto max-w-7xl px-6 text-center">
+          <h1 className="text-4xl md:text-6xl font-bold leading-tight text-gray-900">
+            Insights & <span className="text-blue-600">Resources</span>
+          </h1>
+          <p className="mt-6 max-w-2xl mx-auto text-lg text-gray-600">
+            Discover the latest tech insights, industry trends, and best practices
+            from our team of experts.
+          </p>
+        </div>
+      </section>
+
+      <InsightsContent />
+    </main>
+  );
+}
+
+function InsightsContent() {
   const insights = [
     {
       title: "The Future of AI in Enterprise Software",
@@ -99,28 +130,19 @@ export default function InsightsPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-gray-50">
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
-            Insights &
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"> Resources</span>
-          </h1>
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-12">
-            Stay informed with the latest technology trends, best practices, and thought leadership from our experts
-          </p>
-          
-          {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
+      {/* Category Filter */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-3">
             {categories.map((category, index) => (
               <button
                 key={index}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                   index === 0
                     ? "bg-blue-600 text-white"
-                    : "bg-white/10 text-gray-300 hover:bg-white/20"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                 }`}
               >
                 {category}
@@ -137,32 +159,32 @@ export default function InsightsPage() {
             {insights.map((insight, index) => (
               <article
                 key={index}
-                className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+                className="group bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105"
               >
                 {/* Image/Icon */}
-                <div className="bg-gradient-to-br from-blue-600/20 to-purple-600/20 p-12 flex items-center justify-center">
+                <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-12 flex items-center justify-center">
                   <div className="text-7xl">{insight.image}</div>
                 </div>
 
                 {/* Content */}
                 <div className="p-6">
                   {/* Category */}
-                  <div className="text-blue-400 text-sm font-semibold mb-2">{insight.category}</div>
+                  <div className="text-blue-600 text-sm font-semibold mb-2">{insight.category}</div>
                   
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
                     {insight.title}
                   </h3>
                   
                   {/* Excerpt */}
-                  <p className="text-gray-400 text-sm mb-4">{insight.excerpt}</p>
+                  <p className="text-gray-600 text-sm mb-4">{insight.excerpt}</p>
                   
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2 mb-4">
                     {insight.tags.map((tag, idx) => (
                       <span
                         key={idx}
-                        className="px-2 py-1 bg-white/5 text-gray-400 text-xs rounded-full"
+                        className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full"
                       >
                         {tag}
                       </span>
@@ -177,8 +199,16 @@ export default function InsightsPage() {
                     <span>{insight.readTime}</span>
                   </div>
                   
-                  {/* Date */}
-                  <div className="text-xs text-gray-600 mt-2">{insight.date}</div>
+                  {/* Meta Info */}
+                  <div className="flex items-center gap-4 mt-4 pt-4 border-t border-gray-200">
+                    <span className="text-xs text-gray-500">{insight.author}</span>
+                    <span className="text-xs text-gray-400">•</span>
+                    <span className="text-xs text-gray-500">{insight.readTime}</span>
+                  </div>
+                  
+                  <button className="mt-4 text-blue-600 font-semibold text-sm hover:text-blue-700 transition-colors">
+                    Read More →
+                  </button>
                 </div>
               </article>
             ))}
@@ -186,7 +216,7 @@ export default function InsightsPage() {
 
           {/* Load More Button */}
           <div className="text-center mt-12">
-            <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all transform hover:scale-105">
+            <button className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all transform hover:scale-105 shadow-lg">
               Load More Insights
             </button>
           </div>
@@ -194,13 +224,13 @@ export default function InsightsPage() {
       </section>
 
       {/* Whitepapers Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white/5">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-200">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Free Whitepapers & Reports
             </h2>
-            <p className="text-gray-400 text-lg">
+            <p className="text-gray-600 text-lg">
               Download our in-depth guides and research reports
             </p>
           </div>
@@ -209,14 +239,14 @@ export default function InsightsPage() {
             {whitepapers.map((paper, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-white/20 transition-all"
+                className="bg-gradient-to-br from-blue-50 to-purple-50 border border-gray-200 rounded-2xl p-8 hover:shadow-xl transition-all hover:scale-105"
               >
                 <div className="text-4xl mb-4">📄</div>
-                <h3 className="text-xl font-bold text-white mb-3">{paper.title}</h3>
-                <p className="text-gray-400 text-sm mb-4">{paper.description}</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{paper.title}</h3>
+                <p className="text-gray-600 text-sm mb-4">{paper.description}</p>
                 <div className="flex items-center justify-between">
                   <span className="text-gray-500 text-sm">{paper.pages}</span>
-                  <button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-lg transition-all">
+                  <button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-lg transition-all shadow-md">
                     Download
                   </button>
                 </div>
