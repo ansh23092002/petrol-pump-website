@@ -1,21 +1,31 @@
 "use client";
 
+import React, { useRef, useLayoutEffect } from "react";
 import Image from "next/image";
+import gsap from "gsap";
 import { Badge } from "./Badge";
 import { Button } from "./Button";
 import { ProjectCards } from "./ProjectCards";
 import { BackgroundEffects } from "./BackgroundEffects";
 
 export default function HeroSection() {
+  const projectRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const el = projectRef.current;
+    if (!el) return;
+    gsap.set(el, { y: 50, opacity: 0, force3D: true });
+    gsap.to(el, { y: 0, opacity: 1, duration: 2, ease: "power1.out", stagger: 0.08, force3D: true });
+  }, []);
   return (
-    <section id="hero" className="relative min-h-screen overflow-hidden pt-32">
+    <section id="hero" className="relative min-h-screen overflow-hidden pt-32 z-40 border-white ">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/backgroundiamge.png"
           alt="Background"
           fill
-          className="object-cover opacity-20"
+          className="object-cover "
           priority
         />
       </div>
@@ -36,7 +46,7 @@ export default function HeroSection() {
         </h1>
 
         {/* Subheading */}
-        <p className="text-base sm:text-lg md:text-xl text-gray-400 text-center max-w-4xl mx-auto mb-10 px-4 animate-fade-in-up animation-delay-200">
+        <p className="text-base sm:text-lg md:text-xl text-gray-300 text-center max-w-4xl mx-auto mb-10 px-4 animate-fade-in-up animation-delay-200">
           Scalable. Secure. Future-Ready. Flowrush delivers high-performance
           digital solutions
           <br className="hidden sm:block" />
@@ -81,7 +91,7 @@ export default function HeroSection() {
         </div>
 
         {/* Project Cards */}
-        <div className="animate-fade-in-up animation-delay-600 -mt-22">
+        <div ref={projectRef} className="animate-fade-in-up animation-delay-600 -mt-22">
           <ProjectCards />
         </div>
       </div>

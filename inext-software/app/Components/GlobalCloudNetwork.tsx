@@ -7,7 +7,7 @@ import { Users, Briefcase, BadgeCheck, FileText } from "lucide-react";
 
 // Globe
 const World = dynamic(() => import("./ui/gloab").then((m) => m.World), {
-  ssr: true,
+  ssr: false,
 });
 
 export default function GlobalNetworkSection() {
@@ -36,9 +36,9 @@ export default function GlobalNetworkSection() {
   /* ---------------- GLOBE CONFIG ---------------- */
   const globeConfig = {
     pointSize: 4,
-    globeColor: "#062056",
+    globeColor: "#0B4EA2",
     showAtmosphere: true,
-    atmosphereColor: "#FFFFFF",
+    atmosphereColor: "#0B4EA2   ",
     atmosphereAltitude: 0.1,
     emissive: "#062056",
     emissiveIntensity: 0.1,
@@ -56,7 +56,7 @@ export default function GlobalNetworkSection() {
     autoRotate: true,
     autoRotateSpeed: 0.5,
   };
-  const colors = ["#06b6d4", "#3b82f6", "#6366f1"];
+  const colors = ["#FFD23F", "#ffffff", "#F54927"];
   const sampleArcs = [
     {
       order: 1,
@@ -426,7 +426,7 @@ export default function GlobalNetworkSection() {
         <div className="text-center">
           <h2 className="text-3xl sm:text-5xl font-semibold text-[#062056]">
             Empowering Businesses Globally
-            <span className="text-[#ff7a00]"> with Innovation & Expertise</span>
+            <span className="text-[#1d87eb]"> with Innovation & Expertise</span>
           </h2>
           <p className="mt-3 max-w-3xl mx-auto text-sm sm:text-base text-[#062056]">
             We deliver world-class solutions, expert teams, and measurable results for clients worldwide. Discover how our experience and innovation can help your business grow and succeed in the digital era.

@@ -1,26 +1,55 @@
-// app/components/AboutSection.tsx
 "use client";
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import LogoLoop from "./ui/LogoLoop";
-import { LogoLoopComponent } from "./logoloop";
 
 gsap.registerPlugin(ScrollTrigger);
 
+/* ================= CONTENT ================= */
+
+const industries = [
+  {
+    title: "HEALTHCARE",
+    desc:
+      "We build secure, scalable digital solutions for hospitals, clinics, and health startups. From patient management systems to telemedicine platforms, we simplify care delivery. Our technology helps healthcare providers focus more on patients, less on processes.",
+  },
+  {
+    title: "REALESTATE",
+    desc:
+      "We create digital platforms that simplify property management and customer engagement. From listing portals to CRM and analytics tools, we enhance decision-making. Our solutions help real estate businesses grow faster in a competitive market.",
+  },
+  {
+    title: "AUTOMOBILE",
+    desc:
+      "We help automotive businesses accelerate innovation with smart digital systems. From dealership management to vehicle tracking and data analytics, we power efficiency. Our solutions drive better operations, customer experience, and future-ready mobility.",
+  },
+  {
+    title: "MANUFACTURING",
+    desc:
+      "We enable manufacturers to optimize operations through intelligent digital solutions. From production tracking to inventory and ERP integrations, we streamline workflows. Our technology improves efficiency, visibility, and long-term scalability.",
+  },
+  {
+    title: "EDUCATION",
+    desc:
+      "We design smart digital solutions for schools, institutes, and EdTech platforms. From learning management systems to student portals, we enhance learning experiences. Our technology supports scalable, accessible, and future-ready education.",
+  },
+];
+
+/* ================= MAIN SECTION ================= */
+
 export default function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!sectionRef.current) return;
 
+    // section border radius animation (unchanged)
     gsap.fromTo(
       sectionRef.current,
-      {
-        borderRadius: "49% 51% 0% 0% / 38% 38% 0% 0%",
-      },
+      { borderRadius: "49% 51% 0% 0% / 38% 38% 0% 0%" },
       {
         borderRadius: "0% 0% 0% 0% / 0% 0% 0% 0%",
         ease: "power2.out",
@@ -32,22 +61,38 @@ export default function AboutSection() {
         },
       }
     );
+
+    // cards reveal animation (unchanged)
+    if (gridRef.current) {
+      gsap.fromTo(
+        gridRef.current.children,
+        { opacity: 0, x: 50 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: gridRef.current,
+            start: "top 80%",
+          },
+        }
+      );
+    }
   }, []);
 
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 overflow-hidden text-black"
-        style={{
-          borderRadius: "49% 51% 0% 0% / 38% 38% 0% 0%",
-        }}
+      className="relative py-24 overflow-hidden text-white"
+      style={{
+        borderRadius: "49% 51% 0% 0% / 38% 38% 0% 0%",
+      }}
     >
-      {/* ================= BACKGROUND ================= */}
+      {/* ================= BACKGROUND (SAME) ================= */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        {/* Solid base color */}
         <div className="absolute inset-0 bg-[#020617]" />
-
-        {/* Background image */}
         <Image
           src="/aboutbg.png"
           alt="Office background"
@@ -55,8 +100,6 @@ export default function AboutSection() {
           priority
           className="object-cover"
         />
-
-        {/* Optional overlay */}
         <div className="absolute inset-0 bg-black/10" />
       </div>
 
@@ -74,103 +117,78 @@ export default function AboutSection() {
           </p>
         </div>
 
-        {/* <LogoLoopComponent /> */}
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 opacity-0">
-          <Card>
-            <StatCircle value="92%" />
-            <h3 className="mt-4 font-medium">Real Business Impact</h3>
-            <p className="text-xs text-gray-300 mt-2">
-              Faster delivery, reduced cost, and scalable solutions.
-            </p>
-          </Card>
-
-          <Card>
-            <FakeGraph />
-            <h3 className="mt-4 font-medium">Modern Frontend Stack</h3>
-            <p className="text-xs text-gray-300 mt-2">
-              Next.js, React, Tailwind CSS.
-            </p>
-          </Card>
-
-          <Card>
-            <FakeGraph small />
-            <h3 className="mt-4 font-medium">Actionable Insights</h3>
-            <p className="text-xs text-gray-300 mt-2">
-              Dashboards that drive decisions.
-            </p>
-          </Card>
-
-          <Card className="md:col-span-2">
-            <ChatMock />
-            <h3 className="mt-4 font-medium">Always-On Support</h3>
-            <p className="text-xs text-gray-300 mt-2">
-              Continuous collaboration and improvement.
-            </p>
-          </Card>
-
-          <Card>
-            <IntegrationMock />
-            <h3 className="mt-4 font-medium">Seamless Integrations</h3>
-            <p className="text-xs text-gray-300 mt-2">
-              APIs, CRMs, dashboards.
-            </p>
-          </Card>
+        {/* Cards */}
+        <div
+          ref={gridRef}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+        >
+          {industries.map((item) => (
+            <IndustryCard
+              key={item.title}
+              title={item.title}
+              desc={item.desc}
+            />
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-/* ================= UI BLOCKS ================= */
+/* ================= CARD ================= */
 
-function Card({
-  children,
-  className = "",
+function IndustryCard({
+  title,
+  desc,
 }: {
-  children: React.ReactNode;
-  className?: string;
+  title: string;
+  desc: string;
 }) {
+  const arrowRef = useRef<HTMLSpanElement>(null);
+
+  const moveArrow = () => {
+    if (!arrowRef.current) return;
+    gsap.to(arrowRef.current, {
+      x: 12,
+      duration: 0.35,
+      ease: "power2.out",
+    });
+  };
+
+  const resetArrow = () => {
+    if (!arrowRef.current) return;
+    gsap.to(arrowRef.current, {
+      x: 0,
+      duration: 0.25,
+      ease: "power2.inOut",
+    });
+  };
+
   return (
     <div
-      className={`bg-white/5 border border-white/10 rounded-xl p-5
-      backdrop-blur-xl transition hover:border-blue-500/40 ${className}`}
+      onMouseEnter={moveArrow}
+      onMouseLeave={resetArrow}
+      className="
+        rounded-xl
+        border border-white/15
+        bg-[#0b1224]
+        p-6
+      "
     >
-      {children}
-    </div>
-  );
-}
+      <h3 className="text-blue-400 font-semibold tracking-wide uppercase">
+        {title}
+      </h3>
 
-function StatCircle({ value }: { value: string }) {
-  return (
-    <div className="w-24 h-24 rounded-full border-4 border-blue-500/40 flex items-center justify-center text-xl font-semibold text-blue-300">
-      {value}
-    </div>
-  );
-}
+      <p className="mt-4 text-sm text-gray-300 leading-relaxed">
+        {desc}
+      </p>
 
-function FakeGraph({ small }: { small?: boolean }) {
-  return (
-    <div
-      className={`w-full ${
-        small ? "h-20" : "h-28"
-      } rounded-lg bg-gradient-to-r from-blue-500/40 to-blue-400/10`}
-    />
-  );
-}
-
-function ChatMock() {
-  return (
-    <div className="h-32 rounded-lg bg-black/40 border border-white/10 flex items-center justify-center text-xs text-gray-300">
-      “How can we help you today?”
-    </div>
-  );
-}
-
-function IntegrationMock() {
-  return (
-    <div className="h-28 rounded-lg bg-black/40 border border-white/10 grid place-items-center text-blue-300 text-sm">
-      API · Dashboard · CRM
+      <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-blue-400">
+        EXPLORE
+        <span ref={arrowRef} className="inline-block">
+          →
+        </span>
+      </div>
     </div>
   );
 }

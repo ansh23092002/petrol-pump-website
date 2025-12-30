@@ -39,13 +39,7 @@ const teamMembers = [
 export default function AboutPage() {
   return (
     <main
-      className="
-        min-h-screen 
-        bg-[#d7cec4] 
-        text-[#171310]
-        bg-[radial-gradient(circle,_rgba(0,0,0,0.06)_1px,_transparent_0)]
-        bg-[length:18px_18px]
-      "
+      className="min-h-screen bg-white text-[#1010a8]"
     >
       {/* NEW: Top hero section like last screenshot */}
       <ShowcaseSection />
@@ -64,41 +58,36 @@ export default function AboutPage() {
 function ShowcaseSection() {
   return (
     <section className="mx-auto max-w-6xl px-4 pb-20 pt-20 lg:pt-24">
-      {/* Top: 2 big black image blocks */}
+      {/* Top: 2 big image blocks */}
       <div className="grid gap-6 lg:gap-10 lg:grid-cols-[3fr_2fr] items-start">
-  
-  {/* Left image */}
-  <div className="relative overflow-hidden rounded-3xl bg-black">
-    <div className="aspect-[16/16] w-full">
-      <Image
-        src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg"
-        alt="Crafted details"
-        fill
-        className="object-cover"
-      />
-    </div>
-  </div>
-
-  {/* Right image */}
-  <div className="relative overflow-hidden rounded-3xl bg-black mt-25">
-    <div className="aspect-[4/5] w-full ">
-      <Image
-        src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg"
-        alt="Product close-up"
-        fill
-        className="object-cover"
-      />
-    </div>
-  </div>
-
-</div>
-    
-
+        {/* Left image */}
+        <div className="relative overflow-hidden rounded-3xl bg-[#f6ebdf]">
+          <div className="aspect-[16/16] w-full">
+            <Image
+              src="https://images.pexels.com/photos/3184325/pexels-photo-3184325.jpeg"
+              alt="Crafted details"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+        {/* Right image */}
+        <div className="relative overflow-hidden rounded-3xl bg-[#f8f8f8] mt-25">
+          <div className="aspect-[4/5] w-full ">
+            <Image
+              src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg"
+              alt="Product close-up"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </div>
       {/* Bottom: quote + stats */}
       <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,2.2fr)_minmax(0,1fr)_minmax(0,1fr)] items-start">
         {/* Quote / description */}
-        <div className="text-sm leading-relaxed text-[#3f3a35]">
-          <div className="mb-3 text-4xl text-[#171310]">&ldquo;</div>
+        <div className="text-sm leading-relaxed text-[#020617]">
+          <div className="mb-3 text-4xl text-[#FFD23F]">&ldquo;</div>
           <p>
             We are constantly searching for better ways to build digital
             products, combining proven engineering practices with thoughtful
@@ -106,31 +95,29 @@ function ShowcaseSection() {
             iteration and collaboration.
           </p>
         </div>
-
         {/* Stat 1 */}
         <div>
-          <p className="text-3xl font-semibold tracking-tight text-[#171310]">
+          <p className="text-3xl font-semibold tracking-tight text-[#FFD23F]">
             23K
           </p>
-          <p className="mt-1 text-xs font-medium uppercase tracking-[0.18em] text-[#5a5248]">
+          <p className="mt-1 text-xs font-medium uppercase tracking-[0.18em] text-[#020617]">
             Deployments / year
           </p>
-          <p className="mt-3 text-xs leading-relaxed text-[#4f4944]">
+          <p className="mt-3 text-xs leading-relaxed text-[#020617]">
             Our current delivery capacity across multiple client projects,
             managed through automated CI/CD pipelines and observability
             tooling.
           </p>
         </div>
-
         {/* Stat 2 */}
         <div>
-          <p className="text-3xl font-semibold tracking-tight text-[#171310]">
+          <p className="text-3xl font-semibold tracking-tight text-[#FFD23F]">
             38
           </p>
-          <p className="mt-1 text-xs font-medium uppercase tracking-[0.18em] text-[#5a5248]">
+          <p className="mt-1 text-xs font-medium uppercase tracking-[0.18em] text-[#020617]">
             Years of activity
           </p>
-          <p className="mt-3 text-xs leading-relaxed text-[#4f4944]">
+          <p className="mt-3 text-xs leading-relaxed text-[#020617]">
             Combined experience of our core leadership team in software
             engineering, product strategy and digital transformation.
           </p>
@@ -146,45 +133,45 @@ function ShowcaseSection() {
 
 function FinalSection() {
   return (
-    <section className="mx-auto max-w-4xl px-4 pb-24 text-center">
-      <h2 className="mb-4 text-3xl font-semibold tracking-tight md:text-4xl">
+    <section className="mx-auto max-w-4xl px-4 pb-24 text-center ">
+      <h2 className="mb-4 text-3xl font-semibold tracking-tight md:text-4xl text-[#0B4EA2]">
         Why choose iNext?
       </h2>
-      <p className="mb-8 text-lg text-[#4f4944]">
+      <p className="mb-8 text-lg text-[#020617]">
         We blend engineering, design, and business strategy to deliver digital
         products that drive real impact. Our team is passionate, our workflow is
         proven, and our commitment to your success is unwavering.
       </p>
       <div className="flex flex-col justify-center gap-8 md:flex-row">
-        <div className="flex-1 rounded-2xl bg-[#ede6de] p-6 shadow-sm">
-          <h3 className="mb-2 text-xl font-medium text-[#b0673b]">
+        <div className="flex-1 rounded-2xl bg-[#f6ebdf] p-6 shadow-sm">
+          <h3 className="mb-2 text-xl font-medium text-[#0B4EA2]">
             Expertise
           </h3>
-          <p className="text-sm text-[#4f4944]">
+          <p className="text-sm text-[#020617]">
             Seasoned professionals in engineering, design, and product
             management.
           </p>
         </div>
-        <div className="flex-1 rounded-2xl bg-[#ede6de] p-6 shadow-sm">
-          <h3 className="mb-2 text-xl font-medium text-[#b0673b]">
+        <div className="flex-1 rounded-2xl bg-[#f6ebdf] p-6 shadow-sm">
+          <h3 className="mb-2 text-xl font-medium text-[#0B4EA2]">
             Collaboration
           </h3>
-          <p className="text-sm text-[#4f4944]">
+          <p className="text-sm text-[#020617]">
             We work as an extension of your team, ensuring transparency and
             partnership.
           </p>
         </div>
-        <div className="flex-1 rounded-2xl bg-[#ede6de] p-6 shadow-sm">
-          <h3 className="mb-2 text-xl font-medium text-[#b0673b]">
+        <div className="flex-1 rounded-2xl bg-[#f6ebdf] p-6 shadow-sm">
+          <h3 className="mb-2 text-xl font-medium text-[#0B4EA2]">
             Results
           </h3>
-          <p className="text-sm text-[#4f4944]">
+          <p className="text-sm text-[#020617]">
             Focused on outcomes, we deliver solutions that scale and perform.
           </p>
         </div>
       </div>
       <div className="mt-10">
-        <span className="inline-block rounded-full bg-[#b0673b] px-6 py-3 text-lg font-semibold text-white shadow-md transition hover:bg-[#a05a2e]">
+        <span className="inline-block rounded-full bg-[#E63946] px-6 py-3 text-lg font-semibold text-white shadow-md transition hover:bg-[#b91c1c]">
           Let’s build something great together
         </span>
       </div>
@@ -202,22 +189,22 @@ function TeamSection() {
       {/* Top text + quote */}
       <div className="mb-10 flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
         <div className="max-w-xl">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#c15735]">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#0B4EA2]">
             Our team
           </p>
-          <h1 className="mt-3 text-3xl font-medium leading-tight tracking-tight md:text-4xl lg:text-[42px]">
+          <h1 className="mt-3 text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-[42px] text-[#231b4a]">
             Not just a team,
             <br />
             but a big family.
           </h1>
-          <p className="mt-4 max-w-md text-sm leading-relaxed text-[#4f4944]">
+          <p className="mt-4 max-w-md text-sm leading-relaxed text-[#020617]">
             A multidisciplinary group of engineers, designers and product
             people, working together to build reliable digital products for our
             clients.
           </p>
         </div>
 
-        <div className="max-w-sm text-right text-xs text-[#b0673b]">
+        <div className="max-w-sm text-right text-xs text-[#0B4EA2]">
           <p className="italic">
             &quot;We are always looking for curious people, interested and
             willing to grow with us in the world of software.&quot;
@@ -234,9 +221,9 @@ function TeamSection() {
           {teamMembers.map((member) => (
             <div
               key={member.name}
-              className="flex-1 min-w-[180px] max-w-[220px] rounded-2xl border border-[#8d8275] bg-[#d1c5b6] p-1 shadow-sm"
+              className="flex-1 min-w-[180px] max-w-[220px] rounded-2xl border border-[#0B4EA2] bg-[#020617] p-1 shadow-sm"
             >
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[14px] bg-black">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[14px] bg-[#0B4EA2]">
                 <Image
                   src={member.image}
                   alt={member.name}
@@ -245,10 +232,10 @@ function TeamSection() {
                 />
               </div>
               <div className="mt-3 px-1 pb-2">
-                <p className="text-sm font-medium tracking-tight">
+                <p className="text-sm font-medium tracking-tight text-white">
                   {member.name}
                 </p>
-                <p className="mt-1 text-[11px] uppercase tracking-[0.18em] text-[#6a6259]">
+                <p className="mt-1 text-[11px] uppercase tracking-[0.18em] text-white">
                   {member.role}
                 </p>
               </div>
@@ -294,21 +281,21 @@ function WorkflowSection() {
       {/* Top text + quote */}
       <div className="mb-12 flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
         <div className="max-w-xl">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#c15735]">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#0B4EA2]">
             Our steps
           </p>
-          <h2 className="mt-3 text-3xl font-medium leading-tight tracking-tight md:text-4xl lg:text-[40px]">
+          <h2 className="mt-3 text-3xl font-bold leading-tight tracking-tight md:text-4xl lg:text-[40px] text-[#231b4a]">
             Our core workflow,
             <br />
             it&apos;s not just a vision.
           </h2>
-          <p className="mt-4 text-sm leading-relaxed text-[#4f4944]">
+          <p className="mt-4 text-sm leading-relaxed text-[#020617]">
             From initial discovery to long‑term support, our process is built to
             keep quality and efficiency aligned with business impact.
           </p>
         </div>
 
-        <div className="max-w-sm text-right text-xs text-[#b0673b]">
+        <div className="max-w-sm text-right text-xs text-[#0B4EA2]">
           <p className="italic">
             &quot;We find our work satisfying when quality, timing and
             reliability go hand in hand.&quot;
@@ -320,35 +307,35 @@ function WorkflowSection() {
       </div>
 
       {/* Steps cards */}
-      <div className="grid gap-10 md:grid-cols-3">
+      <div className="grid gap-10 md:grid-cols-3 ">
         {steps.map((item) => (
           <div key={item.step} className="flex flex-col gap-5">
             {/* Step image */}
-            <div className="overflow-hidden rounded-3xl bg-black/90">
+            <div className="overflow-hidden rounded-3xl bg-[#f6ebdf]">
               <div className="aspect-[4/5] w-full relative">
                 <Image
                   src={item.image}
                   alt={item.title + ' illustration'}
                   fill
-                  className="object-cover opacity-80"
+                  className="object-cover opacity-90"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
             </div>
 
             <div className="space-y-2">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#7b7369]">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#0B4EA2]">
                 {item.label}
               </p>
-              <h3 className="text-xl font-medium tracking-tight">
+              <h3 className="text-xl font-bold tracking-tight text-[#231b4a]">
                 {item.title}
               </h3>
-              <p className="text-sm leading-relaxed text-[#4f4944]">
+              <p className="text-sm leading-relaxed text-[#020617]">
                 {item.text}
               </p>
             </div>
 
-            <div className="mt-4 text-4xl font-light tracking-tight text-[#24201c]">
+            <div className="mt-4 text-4xl font-light tracking-tight text-[#FFD23F]">
               {item.step}
             </div>
           </div>

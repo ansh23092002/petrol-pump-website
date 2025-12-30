@@ -133,7 +133,7 @@ export default function Testimonial() {
             <div className="md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               
               {/* Left Column - Scrolls Up */}
-              <div ref={upRef} className="overflow-hidden h-56 xs:h-64 sm:h-80 md:h-96 flex flex-col gap-3 sm:gap-4 scrollbar-hide">
+              <div ref={upRef} className="overflow-hidden h-64 xs:h-80 sm:h-96 md:h-[32rem] flex flex-col gap-3 sm:gap-4 scrollbar-hide">
                                     <div ref={upInnerRef} className="flex flex-col gap-4">
                                         {doubleLeft.map((t, idx) => (
                                             <div key={idx} className="bg-[#18181b] rounded-lg p-4 flex flex-col shadow-md min-h-[120px] sm:min-h-[140px]">
@@ -148,7 +148,7 @@ export default function Testimonial() {
                                     </div>
                                 </div>
                                 {/* Scroll down column */}
-                                <div ref={downRef} className="overflow-hidden h-64 sm:h-80 md:h-96 flex flex-col gap-4 scrollbar-hide">
+                                <div ref={downRef} className="overflow-hidden h-80 sm:h-96 md:h-[32rem] flex flex-col gap-4 scrollbar-hide">
                                     <div ref={downInnerRef} className="flex flex-col gap-4">
                                         {doubleRight.map((t, idx) => (
                                             <div key={idx} className="bg-[#18181b] rounded-lg p-4 flex flex-col shadow-md min-h-[120px] sm:min-h-[140px]">

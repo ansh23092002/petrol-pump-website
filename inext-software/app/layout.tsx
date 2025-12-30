@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./Components/Navbar";
 import SnowfallEffect from "./Components/SnowfallEffect";
 import MagicFooter from "./Components/footer";
+import ScrollToTopButton from "./Components/ScrollToTopButton";
 
 // Admin Config - Change this value to enable/disable snowfall
 export const SNOWFALL_ENABLED = false;
@@ -31,10 +32,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0a0a0a] `}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased  `}
       >
         <Navbar />
         <main className="min-h-screen">{children}</main>
+        <ScrollToTopButton />
         <MagicFooter />
         {SNOWFALL_ENABLED && <SnowfallEffect />}
       </body>

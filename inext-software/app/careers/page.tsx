@@ -1,16 +1,20 @@
+'use client';
 import type { Metadata } from "next";
 import Image from "next/image";
 import Navbar from "../Components/Navbar";
-import MagicFooter from "../Components/footer";
+import { useState } from "react";
 
-export const metadata: Metadata = {
-  title: "Careers at iNext - Join Our Team",
-  description:
-    "Join iNext Software Solutions and build your career with cutting-edge technologies, innovative projects, and a collaborative team.",
-  keywords: "careers, jobs, software developer, job openings, tech careers",
-};
+// export const metadata: Metadata = {
+//   title: "Careers at iNext - Join Our Team",
+//   description:
+//     "Join iNext Software Solutions and build your career with cutting-edge technologies, innovative projects, and a collaborative team.",
+//   keywords: "careers, jobs, software developer, job openings, tech careers",
+// };
 
 export default function CareersPage() {
+  const [sliderYellow, setSliderYellow] = useState(false);
+  const [highlightedIndex, setHighlightedIndex] = useState(1); // start with 2nd card highlighted
+
   const openPositions = [
     {
       title: "Senior Full Stack Developer",
@@ -154,39 +158,34 @@ export default function CareersPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-[#f6ebdf] text-[#271f54]">
+      <main className="min-h-screen bg-gradient-to-br from-[#020617] to-[#0B4EA2] text-white">
         {/* HERO + IMAGE STRIP */}
         <section className="pt-28 pb-16 px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-6xl">
-            <p className="text-center text-[11px] font-semibold uppercase tracking-[0.24em] text-[#b79c7c]">
+            <p className="text-center text-[11px] font-semibold uppercase tracking-[0.24em] text-[#FFD23F]">
               Our Careers
             </p>
-            <h1 className="mt-3 text-center text-3xl font-semibold leading-tight tracking-tight text-[#231b4a] sm:text-4xl md:text-5xl lg:text-[46px]">
+            <h1 className="mt-3 text-center text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[46px]">
               Innovators Wanted; Join
               <br />
               the iNext Revolution
             </h1>
-            <p className="mt-4 mx-auto max-w-2xl text-center text-sm text-[#6c6677] sm:text-base">
+            <p className="mt-4 mx-auto max-w-2xl text-center text-sm text-white/80 sm:text-base">
               Join a team of curious builders shaping the future of software.
               We&apos;re always looking for people who love solving complex
               problems and shipping great products.
             </p>
 
-            {/* small round locator icon like reference */}
-            <div className="mt-6 flex justify-center">
-              <div className="flex h-9 w-9 items-center justify-center rounded-full border border-[#ddcdbb] bg-[#f6ebdf] text-xs text-[#231b4a] shadow-sm">
-                <span>⌄</span>
-              </div>
-            </div>
+          
 
             {/* image strip */}
             <div className="mt-10 flex gap-5 overflow-x-auto pb-3">
               {heroImages.map((src, idx) => (
                 <div
                   key={idx}
-                  className="relative min-w-[210px] max-w-[260px] overflow-hidden rounded-3xl bg-[#f0dfcd] shadow-sm"
+                  className="relative min-w-[210px] max-w-[260px] overflow-hidden rounded-3xl bg-[#18181b] shadow-sm"
                 >
-                  <div className="aspect-[4/3] w-full">
+                  <div className=" w-full">
                     <Image
                       src={src}
                       alt={`Life at iNext ${idx + 1}`}
@@ -200,48 +199,61 @@ export default function CareersPage() {
           </div>
         </section>
 
-        {/* ADVANTAGES / BENEFITS – "Why Work With Us?" */}
+        {/* ADVANTAGES / BENEFITS – "Why Work With Us?" */} 
         <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-6xl">
             <div className="mb-8 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
               <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#b79c7c]">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#FFD23F]">
                   Our Advantages
                 </p>
-                <h2 className="mt-2 text-2xl font-semibold tracking-tight text-[#231b4a] md:text-3xl">
+                <h2 className="mt-2 text-2xl font-bold tracking-tight text-white md:text-3xl">
                   Why Work With Us?
                 </h2>
               </div>
 
               {/* arrows – visual only, like slider controls */}
               <div className="hidden items-center gap-3 sm:flex">
-                <button className="flex h-9 w-9 items-center justify-center rounded-full border border-[#d6c5b2] bg-[#f6ebdf] text-sm text-[#231b4a] hover:bg-[#ead8c5]">
+                <button
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-[#FFD23F] bg-[#0B4EA2] text-sm text-[#FFD23F] hover:bg-[#FFD23F] hover:text-[#0B4EA2]"
+                  onClick={() => {
+                    setSliderYellow((prev) => !prev);
+                    setHighlightedIndex((prev) => (prev - 1 + benefits.length) % benefits.length);
+                  }}
+                >
                   ‹
                 </button>
-                <button className="flex h-9 w-9 items-center justify-center rounded-full border border-[#d6c5b2] bg-[#f6ebdf] text-sm text-[#231b4a] hover:bg-[#ead8c5]">
+                <button
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-[#FFD23F] bg-[#0B4EA2] text-sm text-[#FFD23F] hover:bg-[#FFD23F] hover:text-[#0B4EA2]"
+                  onClick={() => {
+                    setSliderYellow((prev) => !prev);
+                    setHighlightedIndex((prev) => (prev + 1) % benefits.length);
+                  }}
+                >
                   ›
                 </button>
               </div>
             </div>
 
             {/* cards – slider on mobile, grid on larger screens */}
-            <div className="flex gap-5 overflow-x-auto pb-3 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-6">
+            <div
+              className="flex gap-5 overflow-x-auto pb-3 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-6"
+            >
               {benefits.map((benefit, index) => {
-                const isHighlighted = index === 1; // middle orange card feel
+                const isHighlighted = index === highlightedIndex;
                 return (
                   <div
                     key={index}
                     className={`min-w-[220px] rounded-3xl border px-5 py-6 text-sm shadow-sm ${
                       isHighlighted
-                        ? "border-transparent bg-[#ffe7cf]"
-                        : "border-[#e2d3c3] bg-white"
+                        ? "border-transparent bg-[#FFD23F] text-[#020617]"
+                        : "border-[#0B4EA2] bg-[#18181b] text-white"
                     }`}
                   >
-                    <div className="text-3xl">{benefit.icon}</div>
-                    <h3 className="mt-3 text-base font-semibold text-[#231b4a]">
+                    <h3 className="mt-3 text-base font-semibold">
                       {benefit.title}
                     </h3>
-                    <p className="mt-2 text-xs leading-relaxed text-[#6c6677]">
+                    <p className="mt-2 text-xs leading-relaxed">
                       {benefit.description}
                     </p>
                   </div>
@@ -255,13 +267,13 @@ export default function CareersPage() {
         <section className="py-12 px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-6xl">
             <div className="mb-8 max-w-2xl">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#b79c7c]">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#FFD23F]">
                 Our Culture
               </p>
-              <h2 className="mt-2 text-2xl font-semibold tracking-tight text-[#231b4a] md:text-3xl">
+              <h2 className="mt-2 text-2xl font-bold tracking-tight text-white md:text-3xl">
                 How We Work Together
               </h2>
-              <p className="mt-3 text-sm leading-relaxed text-[#6c6677] sm:text-base">
+              <p className="mt-3 text-sm leading-relaxed text-white/80 sm:text-base">
                 We&apos;re a team of problem solvers who value ownership,
                 kindness and continuous improvement. These principles shape how
                 we collaborate every day.
@@ -272,12 +284,12 @@ export default function CareersPage() {
               {values.map((value, index) => (
                 <div
                   key={index}
-                  className="rounded-3xl border border-[#e2d3c3] bg-white px-5 py-6 text-sm shadow-sm"
+                  className="rounded-3xl border border-[#0B4EA2] bg-[#18181b] px-5 py-6 text-sm shadow-sm text-white"
                 >
-                  <h3 className="text-base font-semibold text-[#231b4a]">
+                  <h3 className="text-base font-semibold">
                     {value.title}
                   </h3>
-                  <p className="mt-2 text-xs leading-relaxed text-[#6c6677]">
+                  <p className="mt-2 text-xs leading-relaxed">
                     {value.description}
                   </p>
                 </div>
@@ -289,14 +301,14 @@ export default function CareersPage() {
         {/* OPEN POSITIONS LIST */}
         <section
           id="openings"
-          className="bg-[#efe2d4] py-20 px-4 sm:px-6 lg:px-8"
+          className="bg-[#05235c] py-20 px-4 sm:px-6 lg:px-8"
         >
           <div className="mx-auto max-w-6xl">
             <div className="mb-10 text-center">
-              <h2 className="text-2xl font-semibold tracking-tight text-[#231b4a] sm:text-3xl">
+              <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
                 Open Positions
               </h2>
-              <p className="mt-3 text-sm text-[#6c6677] sm:text-base">
+              <p className="mt-3 text-sm text-white/80 sm:text-base">
                 Find the role that matches your skills and ambitions.
               </p>
             </div>
@@ -305,7 +317,7 @@ export default function CareersPage() {
               {openPositions.map((position, index) => (
                 <article
                   key={index}
-                  className="rounded-3xl border border-[#e0d1c1] bg-white px-6 py-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md md:px-8 md:py-7"
+                  className="rounded-3xl border border-[#4696d8] bg-white px-6 py-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md md:px-8 md:py-7"
                 >
                   <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                     <div className="flex-1">
@@ -353,26 +365,25 @@ export default function CareersPage() {
         </section>
 
         {/* BOTTOM CTA */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl rounded-3xl bg-[#231b4a] px-8 py-12 text-center text-[#f6ebdf] shadow-md">
-            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+        <section className="py-20 px-4 sm:px-6 lg:px-8  from-black to-transparent">
+          <div className="mx-auto max-w-3xl rounded-3xl bg-[#18181b] px-8 py-12 text-center text-white shadow-md">
+            <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
               Don&apos;t See the Right Role?
             </h2>
-            <p className="mt-4 text-sm leading-relaxed text-[#e4d7f0] sm:text-base">
+            <p className="mt-4 text-sm leading-relaxed text-white/80 sm:text-base">
               We&apos;re always happy to hear from talented people. Share your
               profile with us and we&apos;ll reach out when there&apos;s a good
               match.
             </p>
             <a
               href="/contact"
-              className="mt-8 inline-flex items-center justify-center rounded-full bg-[#f6ebdf] px-10 py-3 text-sm font-semibold text-[#231b4a] shadow-sm transition hover:bg-white"
+              className="mt-8 inline-flex items-center justify-center rounded-full bg-[#FFD23F] px-10 py-3 text-sm font-semibold text-[#020617] shadow-sm transition hover:bg-[#ffe066]"
             >
               Send Your Resume
             </a>
           </div>
         </section>
       </main>
-      <MagicFooter />
     </>
   );
 }
