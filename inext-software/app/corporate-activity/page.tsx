@@ -147,18 +147,51 @@ export default function CorporateActivityPage() {
       <Navbar />
       <main className="min-h-screen bg-white text-gray-800">
         {/* Hero Section */}
-        <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 via-white to-purple-50">
-          <div className="mx-auto max-w-6xl text-center">
-            <div className="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-6">
-              ✨ Our Initiatives
+        <section className="relative bg-gradient-to-br from-[#0B4EA2] via-[#0A3F85] pb-24">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center px-6 pt-24">
+
+            {/* LEFT: Text */}
+            <div className="flex-1 text-white mb-12 md:mb-0">
+              <div className="inline-block px-4 py-2 bg-white/10 text-white rounded-full text-sm font-semibold mb-6">
+                ✨ Our Initiatives
+              </div>
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+                Corporate <span className="text-[#FFD600]">Activity</span>
+              </h1>
+              <p className="mb-8 text-lg opacity-90 max-w-xl">
+                Discover how we create meaningful opportunities, foster innovation, and give back to our communities through various corporate initiatives.
+              </p>
+              <div className="flex gap-4">
+                <a href="#" className="bg-white text-[#0B4EA2] font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition">Get Involved</a>
+                <a href="#" className="border border-white/30 text-white font-semibold px-6 py-3 rounded-full hover:bg-white/10 transition">Learn More</a>
+              </div>
             </div>
-            <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Corporate <span className="text-blue-600">Activity</span>
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Discover how we create meaningful opportunities, foster innovation, and give back to our communities through various corporate initiatives.
-            </p>
+
+            {/* RIGHT: Organic blob image */}
+            <div className="flex-1 flex justify-center md:justify-end relative">
+              <div className="relative w-[320px] h-[380px] md:w-[420px] md:h-[480px]">
+                <div
+                  className="absolute inset-0 flex items-center justify-center"
+                  style={{ borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%" }}
+                >
+                  <Image
+                    src='/corporate.png'
+                    alt="Corporate Activity"
+                    fill
+                    className="object-cover "
+                  />
+                </div>
+
+               
+              </div>
+            </div>
+
           </div>
+
+          {/* Decorative curve */}
+          <svg className="absolute bottom-0 left-0 w-full" height="80" viewBox="0 0 1440 80" fill="none" preserveAspectRatio="none">
+            <path d="M0,40 C480,80 960,0 1440,40 L1440,80 L0,80 Z" fill="#fff" />
+          </svg>
         </section>
 
         {/* Sections */}

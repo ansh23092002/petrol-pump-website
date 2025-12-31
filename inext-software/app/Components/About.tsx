@@ -85,7 +85,7 @@ export default function AboutSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-24 overflow-hidden text-white"
+      className="relative py-24 overflow-hidden text-white "
       style={{
         borderRadius: "49% 51% 0% 0% / 38% 38% 0% 0%",
       }}

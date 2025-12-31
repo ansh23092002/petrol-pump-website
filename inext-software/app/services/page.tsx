@@ -7,7 +7,7 @@ export default function ServicesPage() {
   return (
     <main className="bg-white">
       {/* ================= HERO ================= */}
-      <section className="relative bg-gradient-to-br from-[#0B4EA2] via-[#0A3F85] pb-24">
+      <section className="relative bg-gradient-to-br from-[#0B4EA2] via-[#0A3F85] to-[#020617] pb-24">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center px-6 pt-24">
   
   {/* ================= LEFT CONTENT (TEXT SAME) ================= */}
@@ -51,9 +51,7 @@ export default function ServicesPage() {
       {/* Organic Blob Background with Image inside */}
       <div
         className="absolute inset-0 flex items-center justify-center "
-        style={{
-          borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
-        }}
+     
       >
         <Image
           src="/software-team.png"
@@ -61,7 +59,7 @@ export default function ServicesPage() {
           width={800}
           height={900}
           priority
-          className="object-contain max-w-full max-h-full rounded-[40%_30%_60%_40%/90%_30%_70%_40%]"
+          className="object-contain"
           
         />
       </div>
@@ -196,9 +194,11 @@ function ServiceColumn({ title, items }: { title: string; items: string[] }) {
   return (
     <div>
       <h3 className="text-lg font-bold text-[#0B4EA2] mb-4">{title}</h3>
-      <ul className="space-y-2 text-gray-700">
+      <ul className="space-y-4 text-gray-700">
         {items.map((item, i) => (
-          <li key={i}>{item}</li>
+          <li key={i} className="min-h-[44px] flex items-center text-base md:text-lg font-semibold bg-blue-50/70 rounded-lg px-4 border-l-4 border-[#0B4EA2] shadow-sm">
+            <span className="text-[#0B4EA2] mr-3">•</span> {item}
+          </li>
         ))}
       </ul>
     </div>
