@@ -74,8 +74,9 @@ export default function HeroSection() {
               className="-left-78 -top-50"
             />
             <FloatingCard
-              src="/harsun.jpg"
+              src="/fueltrack.png"
               className="-right-78 -top-50"
+              size="medium"
             />
             <FloatingCard
               src="/mobile.png"
@@ -93,23 +94,35 @@ export default function HeroSection() {
 }
 
 /* ===== Floating Card Component ===== */
-function FloatingCard({
-  src,
-  className,
-}: {
+type FloatingCardProps = {
   src: string;
   className: string;
-}) {
+  size?: 'small' | 'medium';
+};
+
+function FloatingCard({ src, className, size }: FloatingCardProps) {
+  let cardSize = 'w-44';
+  let imgSize = { width: 400, height: 300 };
+  let imgClass = 'rounded-lg';
+  if (size === 'small') {
+    cardSize = 'w-12 h-12 min-w-12 min-h-12';
+    imgSize = { width: 48, height: 48 };
+    imgClass = 'rounded-lg w-12 h-12 min-w-12 min-h-12';
+  } else if (size === 'medium') {
+    cardSize = 'w-20 h-20 min-w-20 min-h-20';
+    imgSize = { width: 80, height: 80 };
+    imgClass = 'rounded-lg w-40 h-30 min-w-20 min-h-20';
+  }
   return (
     <div
-      className={`absolute hidden md:block w-44 rounded-xl   ${className}`}
+      className={`absolute hidden md:block rounded-xl ${className} ${cardSize}`}
     >
       <Image
         src={src}
         alt="UI preview"
-        width={400}
-        height={300}
-        className="rounded-lg "
+        width={imgSize.width}
+        height={imgSize.height}
+        className={imgClass}
       />
     </div>
   );

@@ -48,31 +48,32 @@ export default function ServicesPage() {
   <div className="flex-1 flex justify-center relative mt-16 md:mt-0">
     <div className="relative w-[360px] h-[430px]">
 
-      {/* Organic Blob Background */}
+      {/* Organic Blob Background with Image inside */}
       <div
-        className="absolute inset-0  bg-[#944949]"
+        className="absolute inset-0 flex items-center justify-center "
         style={{
           borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
         }}
-      />
-
-      {/* Image */}
-      <Image
-        src="/software-team.png"
-        alt="Software Team"
-        fill
-        priority
-        className="object-cover "
-      />
+      >
+        <Image
+          src="/software-team.png"
+          alt="Software Team"
+          width={800}
+          height={900}
+          priority
+          className="object-contain max-w-full max-h-full rounded-[40%_30%_60%_40%/90%_30%_70%_40%]"
+          
+        />
+      </div>
 
       {/* Circular Rotating Text */}
-      <div className="absolute right-1 -bottom-10 flex items-center justify-center">
+      <div className="absolute right-100 -bottom-10 flex items-center justify-center ">
         <div className="relative flex items-center justify-center">
           <CircularText
             text="SOFTWARE*TEAM*EXPERTS*"
             onHover="speedUp"
             spinDuration={20}
-            className="text-black/80"
+            className="text-black/80 text-[12px] md:text-[30px] lg:text-[40px]"
           />
           <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
             <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -168,7 +169,7 @@ export default function ServicesPage() {
       <section className="relative py-24 bg-white">
         <div className="absolute inset-0">
           <Image
-            src="/tech-bg.jpg"
+            src="/image.png"
             alt="Technology Background"
             fill
             className="object-cover opacity-20"

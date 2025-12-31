@@ -1,89 +1,120 @@
-'use client';
+"use client";
 
-import Link from "next/link";
-import Navbar from "../Components/Navbar";
-import { useRef, useLayoutEffect } from "react";
-import gsap from "gsap";
+import Image from "next/image";
 
 export default function ConsultingPage() {
-  const cardsRef = useRef(null);
-  const approachRef = useRef(null);
+  return (
+    <main className="bg-[#F7F5F2] min-h-screen">
+      {/* HERO SECTION */}
+      <section className="relative w-full h-[420px] md:h-[480px] flex items-center justify-center bg-[#181818]">
+        <Image src="/consulting-hero.jpg" alt="Consulting Hero" fill className="object-cover opacity-60" />
+        <div className="relative z-10 max-w-2xl mx-auto text-center px-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Unlock Your Potential<br />with Professional Consulting
+          </h1>
+          <p className="text-lg text-white/80 mb-6">
+            We help businesses and individuals achieve clarity, confidence, and measurable growth. Our expert consulting services are designed to guide you through challenges, empower your decisions, and deliver lasting results.
+          </p>
+          <div className="flex gap-4 justify-center">
+            <button className="bg-[#FFD600] text-black font-semibold px-6 py-2 rounded-full shadow hover:bg-yellow-300 transition">Start Now</button>
+            <button className="bg-white text-black font-semibold px-6 py-2 rounded-full shadow hover:bg-gray-100 transition">Contact Us</button>
+          </div>
+        </div>
+      </section>
 
-  useLayoutEffect(() => {
-    const cards = cardsRef.current?.querySelectorAll(".consulting-card");
-    if (cards) {
-      gsap.set(cards, { y: 60, opacity: 0, force3D: true });
-      gsap.to(cards, {
-        y: 0,
-        opacity: 1,
-        duration: 0.9,
-        stagger: 0.12,
-        ease: "power3.out",
-        force3D: true,
-      });
-    }
+      {/* ABOUT/ MISSION SECTION */}
+      <section className="max-w-5xl mx-auto mt-12 bg-white rounded-2xl shadow p-8">
+        <div className="flex flex-col md:flex-row gap-8 items-center">
+          <div className="flex-1">
+            <h2 className="text-xl font-semibold mb-2">Our Mission</h2>
+            <p className="text-lg text-gray-700 mb-4">
+              <span className="font-bold italic">Our mission</span> is to empower organizations and individuals to reach their highest potential. We deliver tailored strategies, actionable insights, and hands-on support for sustainable success.
+            </p>
+            <div className="flex gap-2 mt-4">
+              <span className="w-3 h-3 rounded-full bg-[#FFD600] inline-block" />
+              <span className="w-3 h-3 rounded-full bg-[#181818] inline-block" />
+              <span className="w-3 h-3 rounded-full bg-[#E0E0E0] inline-block" />
+            </div>
+          </div>
+          <div className="flex-1 flex justify-center">
+            <Image src="/consulting-profile.jpg" alt="Consulting Profile" width={220} height={220} className="rounded-xl object-cover" />
+          </div>
+        </div>
+     
+      </section>
 
-    const approachCards = approachRef.current?.querySelectorAll(".approach-card");
-    if (approachCards) {
-      gsap.set(approachCards, { scale: 0.8, opacity: 0, force3D: true });
-      gsap.to(approachCards, {
-        scale: 1,
-        opacity: 1,
-        duration: 0.7,
-        stagger: 0.15,
-        ease: "back.out(1.5)",
-        force3D: true,
-        delay: 0.4,
-      });
-    }
-  }, []);
+      {/* EMPOWERING GROWTH SECTION */}
+      <section className="max-w-6xl mx-auto mt-16">
+        <div className="relative h-[320px] md:h-[400px] rounded-2xl overflow-hidden">
+          <Image src="/consulting-growth.jpg" alt="Empowering Growth" fill className="object-cover" />
+          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-white text-center max-w-2xl">
+              Transform your business with expert guidance and proven solutions.
+            </h2>
+          </div>
+        </div>
+      </section>
 
-  const consultingAreas = [
-    {
-      title: "Digital Transformation",
-      description: "Navigate your digital journey with strategic roadmaps and implementation support",
-      details: [
-        "Technology Assessment",
-        "Digital Strategy Planning",
-        "Implementation Roadmap",
-        "Change Management",
-      ],
-      gradient: "from-blue-500 to-cyan-500",
-    },
-    {
-      title: "Technology Advisory",
-      description: "Expert guidance on technology selection, architecture, and best practices",
-      details: [
-        "Technology Stack Selection",
-        "Architecture Design",
-        "Security Consulting",
-        "Performance Optimization",
-      ],
-      gradient: "from-purple-500 to-pink-500",
-    },
-    {
-      title: "Business Process",
-      description: "Optimize operations through automation and process re-engineering",
-      details: [
-        "Process Analysis",
-        "Workflow Automation",
-        "System Integration",
-        "Efficiency Improvement",
-      ],
-      gradient: "from-orange-500 to-red-500",
-    },
-    {
-      title: "Data & Analytics",
-      description: "Turn data into actionable insights with advanced analytics solutions",
-      details: [
-        "Data Strategy",
-        "Analytics Implementation",
-        "Business Intelligence",
-        "Data Governance",
-      ],
-      gradient: "from-green-500 to-teal-500",
-    },
-  ];
+      {/* TESTIMONIAL SECTION */}
+      <section className="max-w-5xl mx-auto mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="bg-white rounded-2xl shadow p-8 flex flex-col justify-center">
+          <h3 className="text-lg font-semibold mb-2 text-gray-800">Client Success Stories</h3>
+          <p className="text-gray-700 mb-4">“The consulting team helped us clarify our vision and implement strategies that delivered real growth. Their expertise and support made all the difference.”</p>
+          <div className="flex items-center gap-4 mt-4">
+            <Image src="/client-profile.jpg" alt="Client" width={56} height={56} className="rounded-full object-cover" />
+            <div>
+              <span className="font-semibold text-gray-800">Alex Morgan</span><br />
+              <span className="text-xs text-gray-500">COO, GrowthWorks</span>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white rounded-2xl shadow p-8 flex flex-col justify-center">
+          <h3 className="text-lg font-semibold mb-2 text-gray-800">Strategic Solutions</h3>
+          <div className="flex flex-col items-center">
+            <Image src="/consulting-coaching.jpg" alt="Consulting Coaching" width={120} height={120} className="rounded-xl object-cover mb-4" />
+            <span className="text-xs text-gray-500 mb-2">December 31, 2025</span>
+            <span className="font-semibold text-gray-800">Business Strategy & Growth</span>
+            <button className="mt-3 bg-[#FFD600] text-black px-4 py-1 rounded-full font-semibold">Learn More</button>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ SECTION */}
+      <section className="max-w-5xl mx-auto mt-16 mb-24">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Find quick, clear answers to common questions</h2>
+        <div className="bg-white rounded-2xl shadow p-8">
+          <ul className="space-y-4">
+            <li className="border-b pb-4">
+              <details>
+                <summary className="font-semibold cursor-pointer">What consulting services do you provide?</summary>
+                <p className="mt-2 text-gray-700">We offer business strategy, digital transformation, leadership coaching, and operational improvement services.</p>
+              </details>
+            </li>
+            <li className="border-b pb-4">
+              <details>
+                <summary className="font-semibold cursor-pointer">How do you customize solutions for clients?</summary>
+                <p className="mt-2 text-gray-700">Our team works closely with you to understand your goals and challenges, then designs tailored strategies for your unique needs.</p>
+              </details>
+            </li>
+            <li className="border-b pb-4">
+              <details>
+                <summary className="font-semibold cursor-pointer">What is the process to get started?</summary>
+                <p className="mt-2 text-gray-700">Contact us to schedule a free consultation. We'll assess your needs and recommend the best approach for your business.</p>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary className="font-semibold cursor-pointer">Do you work with startups and enterprises?</summary>
+                <p className="mt-2 text-gray-700">Yes, we support organizations of all sizes, from startups to large enterprises, across various industries.</p>
+              </details>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  );
+}
+
 
   const approach = [
     {
@@ -107,152 +138,3 @@ export default function ConsultingPage() {
       description: "Continuously monitor, measure, and optimize to ensure maximum value and ROI.",
     },
   ];
-
-  return (
-    <>
-      <Navbar />
-      <main className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-black text-white overflow-hidden">
-        {/* Background Pattern */}
-        <div className="fixed inset-0 opacity-10 pointer-events-none">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRoNHY0aC00ek00NCAzNGg0djRoLTR6Ii8+PC9nPjwvZz48L3N2Zz4=')] bg-repeat" />
-        </div>
-
-        {/* Hero Section */}
-        <section className="relative pt-32 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
-          <div className="absolute top-20 left-1/4 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
-          
-          <div className="relative max-w-7xl mx-auto text-center">
-            <div className="inline-block px-4 py-2 bg-purple-500/20 backdrop-blur-sm rounded-full text-purple-300 text-sm font-semibold mb-6 border border-purple-500/30">
-              💼 Strategic Consulting
-            </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight">
-              Strategic Technology
-              <br />
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                Consulting
-              </span>
-            </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
-              Partner with us to navigate complexity, accelerate innovation, and achieve measurable business outcomes through expert technology guidance.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link
-                href="/contact"
-                className="group px-10 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl font-bold hover:shadow-2xl hover:shadow-purple-500/50 transition-all transform hover:scale-105 flex items-center gap-2"
-              >
-                Schedule a Consultation
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-              <Link
-                href="#expertise"
-                className="px-10 py-4 bg-white/10 backdrop-blur-sm rounded-xl font-bold border border-white/20 hover:bg-white/20 transition-all"
-              >
-                View Expertise
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* Consulting Areas */}
-        <section id="expertise" className="py-20 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-                Our Consulting <span className="text-blue-400">Expertise</span>
-              </h2>
-              <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                Comprehensive consulting services across all aspects of technology and business
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8" ref={cardsRef}>
-              {consultingAreas.map((area, index) => (
-                <div
-                  key={index}
-                  className="consulting-card group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all duration-500 overflow-hidden hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20"
-                >
-                  <div className={`absolute top-0 right-0 w-40 h-40 bg-gradient-to-br ${area.gradient} opacity-20 rounded-full blur-3xl group-hover:opacity-30 transition-opacity`} />
-                  <div className="relative">
-                    <h3 className="text-2xl sm:text-3xl font-bold mb-3 group-hover:text-blue-400 transition-colors">{area.title}</h3>
-                    <p className="text-gray-400 mb-6 leading-relaxed">{area.description}</p>
-                    <ul className="space-y-3">
-                      {area.details.map((detail, idx) => (
-                        <li key={idx} className="flex items-center text-gray-300 text-sm group/item hover:text-white transition-colors">
-                          <span className={`mr-3 w-2 h-2 rounded-full bg-gradient-to-r ${area.gradient} flex-shrink-0 group-hover/item:scale-150 transition-transform`} />
-                          {detail}
-                        </li>
-                      ))}
-                    </ul>
-                    <div className={`mt-6 h-1 w-0 group-hover:w-full transition-all duration-500 bg-gradient-to-r ${area.gradient} rounded-full`} />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Our Approach */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white/5">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-                Our <span className="text-purple-400">Approach</span>
-              </h2>
-              <p className="text-gray-400 text-lg">
-                A proven methodology that delivers results
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" ref={approachRef}>
-              {approach.map((item, index) => (
-                <div key={index} className="approach-card relative group text-center">
-                  <div className="text-7xl font-bold text-white/10 mb-4 group-hover:text-white/20 transition-colors">{item.step}</div>
-                  <h3 className="text-2xl font-bold mb-3 group-hover:text-blue-400 transition-colors">{item.title}</h3>
-                  <p className="text-gray-400 leading-relaxed">{item.description}</p>
-                  {index < approach.length - 1 && (
-                    <div className="hidden lg:block absolute top-12 -right-4 w-8 h-0.5 bg-gradient-to-r from-blue-500 to-transparent opacity-50" />
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-24 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-5xl mx-auto relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-3xl blur-2xl opacity-30 animate-pulse" />
-            <div className="relative bg-gradient-to-r from-blue-600/90 via-purple-600/90 to-pink-600/90 backdrop-blur-sm rounded-3xl p-12 sm:p-16 text-center border border-white/20">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight">
-                Let's Build Your Future Together
-              </h2>
-              <p className="text-white/90 text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
-                Our consultants are ready to help you tackle your most complex challenges and drive transformational change.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/contact"
-                  className="group px-10 py-4 bg-white rounded-xl text-blue-600 font-bold hover:scale-105 transition-all shadow-2xl flex items-center justify-center gap-2"
-                >
-                  Start Consulting
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-                <Link
-                  href="/services"
-                  className="px-10 py-4 bg-white/10 backdrop-blur-sm rounded-xl text-white font-bold border border-white/30 hover:bg-white/20 transition-all"
-                >
-                  View Services
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-    </>
-  );
-}
